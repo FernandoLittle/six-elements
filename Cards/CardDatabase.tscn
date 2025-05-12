@@ -1,0 +1,11 @@
+[gd_scene load_steps=6 format=3 uid="uid://csqb0bfy42x1h"]
+
+[ext_resource type="Script" uid="uid://cbck4l5rptwo1" path="res://Scripts/Mains Scene/CardaDatabase.gd" id="1_ciauu"]
+[ext_resource type="Script" uid="uid://c3dmp3ohpiryt" path="res://Scripts/Mains Scene/Card.gd" id="2_xx0ac"]
+[ext_resource type="Resource" uid="uid://djssiaodqcidg" path="res://Cards/Card1.tres" id="3_nrpxo"]
+[ext_resource type="Resource" uid="uid://4nxm3ba54lxi" path="res://Cards/Card2.tres" id="4_mnpge"]
+[ext_resource type="Resource" uid="uid://dd8jyqv3g5ngt" path="res://Cards/Card3.tres" id="5_il7qy"]
+
+[node name="CardDatabase" type="Node"]
+script = ExtResource("1_ciauu")
+Cards = Array[ExtResource("2_xx0ac")]([ExtResource("3_nrpxo"), ExtResource("4_mnpge"), ExtResource("5_il7qy"), ExtResource("3_nrpxo"), ExtResource("4_mnpge"), ExtResource("5_il7qy"), ExtResource("3_nrpxo"), ExtResource("4_mnpge"), ExtResource("5_il7qy")])

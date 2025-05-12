@@ -1,0 +1,426 @@
+[gd_scene load_steps=14 format=3 uid="uid://cdjgobifb2705"]
+
+[ext_resource type="PackedScene" uid="uid://dg3y62gxuwy0l" path="res://Scripts/Mains Scene/Card.tscn" id="1_u0p1c"]
+[ext_resource type="Texture2D" uid="uid://cprad188pvgyb" path="res://Test Images/IconsElement/Air Teste.png" id="2_c00yc"]
+[ext_resource type="Texture2D" uid="uid://d0bdxn0r7xcyy" path="res://Test Images/icon.svg" id="2_o1p8q"]
+[ext_resource type="Texture2D" uid="uid://dw4ik082j6264" path="res://Test Images/IconsElement/Water Teste.png" id="3_bw8i8"]
+[ext_resource type="Script" uid="uid://b58tbswr1edcx" path="res://Scripts/Mains Scene/God.gd" id="3_cjuxf"]
+[ext_resource type="Script" uid="uid://cl3yu8xgs587x" path="res://Scripts/Mains Scene/DeckAndHand.gd" id="4_dxd41"]
+[ext_resource type="Texture2D" uid="uid://cbesig4xmdb4d" path="res://Test Images/IconsElement/Fire Teste.png" id="4_esyc8"]
+[ext_resource type="Texture2D" uid="uid://bp31ym5g5j6ay" path="res://Test Images/IconsElement/Earth Teste.png" id="5_mpm8g"]
+[ext_resource type="PackedScene" uid="uid://csqb0bfy42x1h" path="res://Cards/CardDatabase.tscn" id="5_o1p8q"]
+[ext_resource type="Texture2D" uid="uid://btopmkgn3mhlm" path="res://Test Images/we-do-a-little-tankie-trolling-v0-tb4dc553iike1.webp" id="6_esyc8"]
+[ext_resource type="Texture2D" uid="uid://cm48veqtkogf" path="res://Test Images/IconsElement/Light Teste.png" id="6_h8pvo"]
+[ext_resource type="Texture2D" uid="uid://dxg18ft6bxrcq" path="res://Test Images/IconsElement/Darkness Teste.png" id="7_edwym"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_0xm2m"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_0xm2m")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.94762)
+
+[node name="Scripts" type="Node" parent="."]
+
+[node name="God" type="Node" parent="Scripts" node_paths=PackedStringArray("deckhand", "BattleCards", "BattleZone1", "BattleZone2", "BattleZone3", "BattleZone1Enemy", "BattleZone2Enemy", "BattleZone3Enemy", "PontuationAllyT", "PontuationEnemyT", "ElementAllyS", "ElementEnemyS")]
+script = ExtResource("3_cjuxf")
+deckhand = NodePath("../DeckAndHand")
+BattleCards = [NodePath("../../Scene2D/CardsPlayed/Ally1/Card1"), NodePath("../../Scene2D/CardsPlayed/Ally2/Card1"), NodePath("../../Scene2D/CardsPlayed/Ally3/Card1")]
+BattleZoneArray = Array[Array]([[], [], []])
+BattleZone1 = [NodePath("../../Scene2D/CardsPlayed/Ally1/Card1"), NodePath("../../Scene2D/CardsPlayed/Ally1/Card2"), NodePath("../../Scene2D/CardsPlayed/Ally1/Card3")]
+BattleZone2 = [NodePath("../../Scene2D/CardsPlayed/Ally2/Card1"), NodePath("../../Scene2D/CardsPlayed/Ally2/Card2"), NodePath("../../Scene2D/CardsPlayed/Ally2/Card3")]
+BattleZone3 = [NodePath("../../Scene2D/CardsPlayed/Ally3/Card1"), NodePath("../../Scene2D/CardsPlayed/Ally3/Card2"), NodePath("../../Scene2D/CardsPlayed/Ally3/Card3")]
+BattleZoneArrayEnemy = Array[Array]([[], [], []])
+BattleZone1Enemy = [NodePath("../../Scene2D/CardsPlayed/Enemy1/Card13"), NodePath("../../Scene2D/CardsPlayed/Enemy1/Card12"), NodePath("../../Scene2D/CardsPlayed/Enemy1/Card11")]
+BattleZone2Enemy = [NodePath("../../Scene2D/CardsPlayed/Enemy2/Card10"), NodePath("../../Scene2D/CardsPlayed/Enemy2/Card9"), NodePath("../../Scene2D/CardsPlayed/Enemy2/Card8")]
+BattleZone3Enemy = [NodePath("../../Scene2D/CardsPlayed/Enemy3/Card7"), NodePath("../../Scene2D/CardsPlayed/Enemy3/Card6"), NodePath("../../Scene2D/CardsPlayed/Enemy3/Card5")]
+PontuationAllyT = [NodePath("../../Scene2D/CardsPlayed/Ally1/PowerTotal/PowerTotaltext1"), NodePath("../../Scene2D/CardsPlayed/Ally2/PowerTotal2/PowerTotaltext1"), NodePath("../../Scene2D/CardsPlayed/Ally3/PowerTotal3/PowerTotaltext1")]
+PontuationEnemyT = [NodePath("../../Scene2D/CardsPlayed/Enemy1/PowerTotalEnemy1/PowerTotaltext1"), NodePath("../../Scene2D/CardsPlayed/Enemy2/PowerTotalEnemy2/PowerTotaltext1"), NodePath("../../Scene2D/CardsPlayed/Enemy3/PowerTotalEnemy3/PowerTotaltext1")]
+AllyAttacking = true
+DiceElementAlly = Array[int]([1, 2, 3, 4, 5, 6])
+DiceElementEnemy = Array[int]([1, 2, 3, 4, 5, 6])
+ElementIcons = Array[Texture]([ExtResource("2_c00yc"), ExtResource("3_bw8i8"), ExtResource("4_esyc8"), ExtResource("5_mpm8g"), ExtResource("6_h8pvo"), ExtResource("7_edwym")])
+ElementAllyS = NodePath("../../Scene2D/Dice/ElementAlly")
+ElementEnemyS = NodePath("../../Scene2D/Dice/ElementEnemy")
+
+[node name="DeckAndHand" type="Node" parent="Scripts" node_paths=PackedStringArray("CardHand", "CardHandEnemy", "carddatabase")]
+script = ExtResource("4_dxd41")
+CardHand = [NodePath("../../Scene2D/Hand/Card1/Card"), NodePath("../../Scene2D/Hand/Card2/Card2"), NodePath("../../Scene2D/Hand/Card3/Card3"), NodePath("../../Scene2D/Hand/Card4/Card4")]
+CardHandEnemy = [NodePath("../../Scene2D/Enemy/Card1/Card"), NodePath("../../Scene2D/Enemy/Card2/Card2"), NodePath("../../Scene2D/Enemy/Card3/Card3"), NodePath("../../Scene2D/Enemy/Card4/Card4")]
+carddatabase = NodePath("../CardDatabase")
+
+[node name="CardDatabase" parent="Scripts" instance=ExtResource("5_o1p8q")]
+
+[node name="Scene2D" type="Node2D" parent="."]
+
+[node name="CardsPlayed" type="Node2D" parent="Scene2D"]
+
+[node name="Ally1" type="Node2D" parent="Scene2D/CardsPlayed"]
+position = Vector2(-105, 18)
+
+[node name="Card3" parent="Scene2D/CardsPlayed/Ally1" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+position = Vector2(351, 319)
+scale = Vector2(0.468599, 0.468599)
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="Card2" parent="Scene2D/CardsPlayed/Ally1" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+position = Vector2(351, 347)
+scale = Vector2(0.468599, 0.468599)
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="Card1" parent="Scene2D/CardsPlayed/Ally1" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+position = Vector2(351, 376)
+scale = Vector2(0.468599, 0.468599)
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="PowerTotal" type="Sprite2D" parent="Scene2D/CardsPlayed/Ally1"]
+self_modulate = Color(0.113725, 0, 0.14902, 1)
+position = Vector2(487, 290)
+scale = Vector2(0.765262, 0.765262)
+texture = ExtResource("2_o1p8q")
+
+[node name="PowerTotaltext1" type="RichTextLabel" parent="Scene2D/CardsPlayed/Ally1/PowerTotal"]
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 58.0
+offset_bottom = 53.0
+text = "100"
+autowrap_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ally2" type="Node2D" parent="Scene2D/CardsPlayed"]
+position = Vector2(19, 18)
+
+[node name="Card3" parent="Scene2D/CardsPlayed/Ally2" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+position = Vector2(493, 319)
+scale = Vector2(0.468599, 0.468599)
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="Card2" parent="Scene2D/CardsPlayed/Ally2" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+position = Vector2(493, 347)
+scale = Vector2(0.468599, 0.468599)
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="Card1" parent="Scene2D/CardsPlayed/Ally2" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+position = Vector2(493, 376)
+scale = Vector2(0.468599, 0.468599)
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="PowerTotal2" type="Sprite2D" parent="Scene2D/CardsPlayed/Ally2"]
+self_modulate = Color(0.113725, 0, 0.14902, 1)
+position = Vector2(618.977, 289.977)
+scale = Vector2(0.765262, 0.765262)
+texture = ExtResource("2_o1p8q")
+
+[node name="PowerTotaltext1" type="RichTextLabel" parent="Scene2D/CardsPlayed/Ally2/PowerTotal2"]
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 58.0
+offset_bottom = 53.0
+text = "100"
+autowrap_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ally3" type="Node2D" parent="Scene2D/CardsPlayed"]
+position = Vector2(122, 18)
+
+[node name="Card3" parent="Scene2D/CardsPlayed/Ally3" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+position = Vector2(646, 319)
+scale = Vector2(0.468599, 0.468599)
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="Card2" parent="Scene2D/CardsPlayed/Ally3" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+position = Vector2(646, 347)
+scale = Vector2(0.468599, 0.468599)
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="Card1" parent="Scene2D/CardsPlayed/Ally3" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+position = Vector2(646, 376)
+scale = Vector2(0.468599, 0.468599)
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="PowerTotal3" type="Sprite2D" parent="Scene2D/CardsPlayed/Ally3"]
+self_modulate = Color(0.113725, 0, 0.14902, 1)
+position = Vector2(768.977, 289.977)
+scale = Vector2(0.765262, 0.765262)
+texture = ExtResource("2_o1p8q")
+
+[node name="PowerTotaltext1" type="RichTextLabel" parent="Scene2D/CardsPlayed/Ally3/PowerTotal3"]
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 58.0
+offset_bottom = 53.0
+text = "100"
+autowrap_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy3" type="Node2D" parent="Scene2D/CardsPlayed"]
+position = Vector2(1116, 467)
+rotation = 3.14159
+
+[node name="Card5" parent="Scene2D/CardsPlayed/Enemy3" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+position = Vector2(351, 319)
+scale = Vector2(0.468599, 0.468599)
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="Card6" parent="Scene2D/CardsPlayed/Enemy3" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+position = Vector2(351, 347)
+scale = Vector2(0.468599, 0.468599)
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="Card7" parent="Scene2D/CardsPlayed/Enemy3" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+position = Vector2(351, 376)
+scale = Vector2(0.468599, 0.468599)
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="PowerTotalEnemy3" type="Sprite2D" parent="Scene2D/CardsPlayed/Enemy3"]
+self_modulate = Color(0.113725, 0, 0.14902, 1)
+position = Vector2(226.023, 286.023)
+rotation = 3.14159
+scale = Vector2(0.765262, 0.765262)
+texture = ExtResource("2_o1p8q")
+
+[node name="PowerTotaltext1" type="RichTextLabel" parent="Scene2D/CardsPlayed/Enemy3/PowerTotalEnemy3"]
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 58.0
+offset_bottom = 53.0
+text = "100"
+autowrap_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy2" type="Node2D" parent="Scene2D/CardsPlayed"]
+position = Vector2(1004, 467)
+rotation = 3.14159
+
+[node name="Card8" parent="Scene2D/CardsPlayed/Enemy2" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+position = Vector2(493, 319)
+scale = Vector2(0.468599, 0.468599)
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="Card9" parent="Scene2D/CardsPlayed/Enemy2" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+position = Vector2(493, 347)
+scale = Vector2(0.468599, 0.468599)
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="Card10" parent="Scene2D/CardsPlayed/Enemy2" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+position = Vector2(493, 376)
+scale = Vector2(0.468599, 0.468599)
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="PowerTotalEnemy2" type="Sprite2D" parent="Scene2D/CardsPlayed/Enemy2"]
+self_modulate = Color(0.113725, 0, 0.14902, 1)
+position = Vector2(367.023, 286.023)
+rotation = 3.14159
+scale = Vector2(0.765262, 0.765262)
+texture = ExtResource("2_o1p8q")
+
+[node name="PowerTotaltext1" type="RichTextLabel" parent="Scene2D/CardsPlayed/Enemy2/PowerTotalEnemy2"]
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 58.0
+offset_bottom = 53.0
+text = "100"
+autowrap_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy1" type="Node2D" parent="Scene2D/CardsPlayed"]
+position = Vector2(888, 465)
+rotation = 3.14159
+
+[node name="Card11" parent="Scene2D/CardsPlayed/Enemy1" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+position = Vector2(646, 319)
+scale = Vector2(0.468599, 0.468599)
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="Card12" parent="Scene2D/CardsPlayed/Enemy1" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+position = Vector2(646, 347)
+scale = Vector2(0.468599, 0.468599)
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="Card13" parent="Scene2D/CardsPlayed/Enemy1" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+position = Vector2(646, 376)
+scale = Vector2(0.468599, 0.468599)
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="PowerTotalEnemy1" type="Sprite2D" parent="Scene2D/CardsPlayed/Enemy1"]
+self_modulate = Color(0.113725, 0, 0.14902, 1)
+position = Vector2(507, 284)
+rotation = 3.14159
+scale = Vector2(0.765262, 0.765262)
+texture = ExtResource("2_o1p8q")
+
+[node name="PowerTotaltext1" type="RichTextLabel" parent="Scene2D/CardsPlayed/Enemy1/PowerTotalEnemy1"]
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 58.0
+offset_bottom = 53.0
+text = "100"
+autowrap_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Hand" type="Node2D" parent="Scene2D"]
+
+[node name="Card1" type="Marker2D" parent="Scene2D/Hand"]
+position = Vector2(470, 566.269)
+scale = Vector2(0.626866, 0.626866)
+
+[node name="Card" parent="Scene2D/Hand/Card1" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+scale = Vector2(0.671237, 0.671237)
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="Card2" type="Marker2D" parent="Scene2D/Hand"]
+position = Vector2(342, 566.269)
+scale = Vector2(0.626866, 0.626866)
+
+[node name="Card2" parent="Scene2D/Hand/Card2" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+scale = Vector2(0.671237, 0.671237)
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="Card3" type="Marker2D" parent="Scene2D/Hand"]
+position = Vector2(600, 567.269)
+scale = Vector2(0.626866, 0.626866)
+
+[node name="Card3" parent="Scene2D/Hand/Card3" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+scale = Vector2(0.671237, 0.671237)
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="Card4" type="Marker2D" parent="Scene2D/Hand"]
+position = Vector2(721, 567.269)
+scale = Vector2(0.626872, 0.626872)
+
+[node name="Card4" parent="Scene2D/Hand/Card4" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+scale = Vector2(0.671237, 0.671237)
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="Enemy" type="Node2D" parent="Scene2D"]
+position = Vector2(0, -668)
+
+[node name="Card1" type="Marker2D" parent="Scene2D/Enemy"]
+position = Vector2(470, 566.269)
+scale = Vector2(0.626866, 0.626866)
+
+[node name="Card" parent="Scene2D/Enemy/Card1" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+scale = Vector2(0.671237, 0.671237)
+CardIlustration = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-0.749996, -40.75),"rotation":0.0,"scale":Vector2(1.21484, 1.21484),"skew":0.0,"texture":ExtResource("2_o1p8q"),"centered":true,"offset":Vector2(0, 0),"flip_h":false,"flip_v":false,"hframes":1,"vframes":1,"frame":0,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":null)
+
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="Card2" type="Marker2D" parent="Scene2D/Enemy"]
+position = Vector2(342, 566.269)
+scale = Vector2(0.626866, 0.626866)
+
+[node name="Card2" parent="Scene2D/Enemy/Card2" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+scale = Vector2(0.671237, 0.671237)
+CardIlustration = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-0.749996, -40.75),"rotation":0.0,"scale":Vector2(1.21484, 1.21484),"skew":0.0,"texture":ExtResource("2_o1p8q"),"centered":true,"offset":Vector2(0, 0),"flip_h":false,"flip_v":false,"hframes":1,"vframes":1,"frame":0,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":null)
+
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="Card3" type="Marker2D" parent="Scene2D/Enemy"]
+position = Vector2(600, 567.269)
+scale = Vector2(0.626866, 0.626866)
+
+[node name="Card3" parent="Scene2D/Enemy/Card3" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+scale = Vector2(0.671237, 0.671237)
+CardIlustration = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-0.749996, -40.75),"rotation":0.0,"scale":Vector2(1.21484, 1.21484),"skew":0.0,"texture":ExtResource("2_o1p8q"),"centered":true,"offset":Vector2(0, 0),"flip_h":false,"flip_v":false,"hframes":1,"vframes":1,"frame":0,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":null)
+
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="Card4" type="Marker2D" parent="Scene2D/Enemy"]
+position = Vector2(721, 567.269)
+scale = Vector2(0.626872, 0.626872)
+
+[node name="Card4" parent="Scene2D/Enemy/Card4" node_paths=PackedStringArray("carddatabase") instance=ExtResource("1_u0p1c")]
+scale = Vector2(0.671237, 0.671237)
+CardIlustration = Object(Sprite2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(-0.749996, -40.75),"rotation":0.0,"scale":Vector2(1.21484, 1.21484),"skew":0.0,"texture":ExtResource("2_o1p8q"),"centered":true,"offset":Vector2(0, 0),"flip_h":false,"flip_v":false,"hframes":1,"vframes":1,"frame":0,"region_enabled":false,"region_rect":Rect2(0, 0, 0, 0),"region_filter_clip_enabled":false,"script":null)
+
+carddatabase = NodePath("../../../../Scripts/CardDatabase")
+
+[node name="PlayArea" type="Node2D" parent="Scene2D"]
+
+[node name="PlayArea1" type="Control" parent="Scene2D/PlayArea"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 150.0
+offset_top = 238.0
+offset_right = 324.0
+offset_bottom = 479.0
+
+[node name="PlayArea2" type="Control" parent="Scene2D/PlayArea"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 421.0
+offset_top = 238.0
+offset_right = 595.0
+offset_bottom = 479.0
+
+[node name="PlayArea3" type="Control" parent="Scene2D/PlayArea"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 675.0
+offset_top = 238.0
+offset_right = 849.0
+offset_bottom = 479.0
+
+[node name="PlayButton" type="Sprite2D" parent="Scene2D"]
+self_modulate = Color(0.176419, 0.176419, 0.176419, 1)
+position = Vector2(987, 562)
+texture = ExtResource("2_o1p8q")
+
+[node name="Button" type="Button" parent="Scene2D/PlayButton"]
+offset_left = -64.0
+offset_top = -63.0
+offset_right = 64.0
+offset_bottom = 64.0
+text = "Play"
+
+[node name="Button2" type="Button" parent="Scene2D/PlayButton"]
+offset_left = 120.0
+offset_top = 17.0
+offset_right = 229.0
+offset_bottom = 120.0
+text = "Undo"
+
+[node name="Dice" type="Node2D" parent="Scene2D"]
+
+[node name="ElementAlly" type="TextureRect" parent="Scene2D/Dice"]
+offset_left = 1009.0
+offset_top = 121.0
+offset_right = 1095.0
+offset_bottom = 213.0
+texture = ExtResource("6_esyc8")
+expand_mode = 1
+
+[node name="ElementEnemy" type="TextureRect" parent="Scene2D/Dice"]
+offset_left = 1009.0
+offset_top = 252.0
+offset_right = 1095.0
+offset_bottom = 344.0
+texture = ExtResource("6_esyc8")
+expand_mode = 1
+
+[node name="TestButonTurn" type="Button" parent="Scene2D"]
+offset_left = 1116.0
+offset_top = 430.0
+offset_right = 1220.0
+offset_bottom = 551.0
+text = "Beta Turn UP"
+
+[connection signal="mouse_entered" from="Scene2D/PlayArea/PlayArea1" to="Scripts/God" method="Area1Enter"]
+[connection signal="mouse_exited" from="Scene2D/PlayArea/PlayArea1" to="Scripts/God" method="Area1Exit"]
+[connection signal="mouse_entered" from="Scene2D/PlayArea/PlayArea2" to="Scripts/God" method="Area2Enter"]
+[connection signal="mouse_exited" from="Scene2D/PlayArea/PlayArea2" to="Scripts/God" method="Area2Exit"]
+[connection signal="mouse_entered" from="Scene2D/PlayArea/PlayArea3" to="Scripts/God" method="Area3Enter"]
+[connection signal="mouse_exited" from="Scene2D/PlayArea/PlayArea3" to="Scripts/God" method="Area3Exit"]
+[connection signal="pressed" from="Scene2D/PlayButton/Button" to="Scripts/God" method="PlayButtonPressed"]
+[connection signal="pressed" from="Scene2D/PlayButton/Button2" to="Scripts/God" method="Undo"]
+[connection signal="pressed" from="Scene2D/TestButonTurn" to="Scripts/God" method="TurnBeta"]

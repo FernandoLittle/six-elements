@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://dd8jyqv3g5ngt"]
+
+[ext_resource type="Texture2D" uid="uid://dgopqh0kqc831" path="res://Test Images/w47lwoqlqnue1.webp" id="1_iyyfy"]
+[ext_resource type="Script" uid="uid://c3dmp3ohpiryt" path="res://Scripts/Mains Scene/Card.gd" id="2_xhseh"]
+
+[resource]
+script = ExtResource("2_xhseh")
+id = 3
+CardName = "eee"
+CardIlustration = ExtResource("1_iyyfy")
+Attack = 8
+ElementAttack = 4
+Defense = 8
+ElementDefense = 4
+ElementEffect = 3
+TextEffect = "ooo"
+Cost = 2
+Rarity = 3
+IaDefenseValue = 3
+IaAttackValue = 0
+IaReforceValue = 0
+metadata/_custom_type_script = "uid://c3dmp3ohpiryt"

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://4nxm3ba54lxi"]
+
+[ext_resource type="Texture2D" uid="uid://btopmkgn3mhlm" path="res://Test Images/we-do-a-little-tankie-trolling-v0-tb4dc553iike1.webp" id="1_50whv"]
+[ext_resource type="Script" uid="uid://c3dmp3ohpiryt" path="res://Scripts/Mains Scene/Card.gd" id="2_q0asg"]
+
+[resource]
+script = ExtResource("2_q0asg")
+id = 2
+CardName = "peitos"
+CardIlustration = ExtResource("1_50whv")
+Attack = 3
+ElementAttack = 1
+Defense = 2
+ElementDefense = 2
+ElementEffect = 1
+TextEffect = "eee"
+Cost = 2
+Rarity = 1
+IaDefenseValue = 2
+IaAttackValue = 0
+IaReforceValue = 0
+metadata/_custom_type_script = "uid://c3dmp3ohpiryt"

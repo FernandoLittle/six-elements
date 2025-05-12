@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://djssiaodqcidg"]
+
+[ext_resource type="Script" uid="uid://c3dmp3ohpiryt" path="res://Scripts/Mains Scene/Card.gd" id="1_r7m3g"]
+[ext_resource type="Texture2D" uid="uid://ldbep0s1isus" path="res://Test Images/place-your-bet-will-you-all-in-v0-vt7bd03iovie1.webp" id="1_uxp5w"]
+
+[resource]
+script = ExtResource("1_r7m3g")
+id = 0
+CardName = "Monster"
+CardIlustration = ExtResource("1_uxp5w")
+Attack = 0
+ElementAttack = 0
+Defense = 0
+ElementDefense = 0
+ElementEffect = 0
+TextEffect = "I see you"
+Cost = -3
+Rarity = 9
+IaDefenseValue = 0
+IaAttackValue = 0
+IaReforceValue = 0
+metadata/_custom_type_script = "uid://c3dmp3ohpiryt"

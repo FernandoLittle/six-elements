@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://c4imxed32ohcy"]
+
+[ext_resource type="Script" uid="uid://c3dmp3ohpiryt" path="res://Scripts/Mains Scene/Card.gd" id="1_uirs1"]
+
+[resource]
+script = ExtResource("1_uirs1")
+CardName = "Monster"
+Attack = 10
+ElementAttack = 6
+Defense = 10
+ElementDefense = 6
+ElementEffect = 6
+TextEffect = "I see you"
+Cost = -3
+Rarity = 0
