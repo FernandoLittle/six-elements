@@ -17,6 +17,8 @@ extends Node
 
 @export var PontuationAlly: Array[int]=[0,0,0]
 @export var PontuationEnemy: Array[int]=[0,0,0]
+@export var DamageEnemy: Array[int]=[0,0,0]
+@export var DamageAlly: Array[int]=[0,0,0]
 @export var PontuationAllyT: Array[RichTextLabel]
 @export var PontuationEnemyT: Array[RichTextLabel]
 
@@ -35,7 +37,25 @@ extends Node
 @export var Turn:int
 @export var zoneplayed: int
 
+@export var LifeAlly: int
+@export var LifeEnemy: int
+@export var LifeAllyT: ProgressBar
+@export var LifeEnemyT: ProgressBar
+
 func _ready() -> void:
+	LifeAlly=30
+	LifeEnemy=30
+
+	LifeAllyT.value=LifeAlly
+
+	LifeEnemyT.value=LifeAlly
+	
+	
+	
+	
+	
+	
+	
 	BattleZoneArray[0].append_array(BattleZone1)
 	BattleZoneArray[1].append_array(BattleZone2)
 	BattleZoneArray[2].append_array(BattleZone3)
@@ -56,7 +76,7 @@ func ChangeTurn():
 	TurnAlly=!TurnAlly
 	pass
 func SetDice():
-	print("IIII")
+
 	var chaos=randi_range(0,5)
 	var chaos1=randi_range(0,5)
 
@@ -102,7 +122,7 @@ func SetPontuation():
 	pass
 
 func AreaEnter(idbattle: int):
-	print("wwww")
+
 	IdBattle=idbattle
 	InBattle=true
 	pass
@@ -134,7 +154,7 @@ func AllyPlayCard(zone: int, positionzone:int, idcard:int ):
 	BattleZoneArray[zone][positionzone].SetAttributes(idcard)
 	pass
 func CardHandRelease():
-	print("foi")
+
 	SetCardInZone(HolySpirit.SelectedCard)
 	if(InBattle==true):
 		HolySpirit.ZoneMouse=IdBattle
@@ -168,7 +188,7 @@ func OpponentPlayAttack():
 	for x in range(0, 4):
 		cardplayed=x
 		if(deckhand.CardHandEnemy[cardplayed].Played==false):
-			zoneplayed=randi_range(0,3)
+			zoneplayed=randi_range(0,2)
 			FindFreeZone()
 			OpponentPlayCard(cardplayed,zoneplayed)
 	pass
@@ -189,14 +209,13 @@ func OpponentPlayDefense():
 			pass
 		pass
 	var zoneplayed: int
-	for x in range(0, 2):
-		if(PontuationAlly[x]<PontuationAlly[x+1]):
-			zoneplayed==x+1
-		else:
-			zoneplayed=x			
-			pass
+	zoneplayed=0
+	for x in range(0, 3):
+		if(PontuationAlly[zoneplayed]<PontuationAlly[x]):
+			zoneplayed=x
 		pass
-	
+	print("zoneplayedis")
+	print(zoneplayed)
 	OpponentPlayCard(cardplayed,zoneplayed)
 	pass
 func OpponentPlayCard(cardplayed:int,zoneplayed):
@@ -211,10 +230,8 @@ func OpponentPlayCard(cardplayed:int,zoneplayed):
 	else:
 		print("Num pode ser")
 			
-	print("CardPlayedis")
-	print(zoneplayed)
-	print(positionPlay)
-	print(cardplayed)
+
+
 	BattleZoneArrayEnemy[zoneplayed][positionPlay].SetAttributes(deckhand.CardHandEnemy[cardplayed].idcard)
 	CardPlayed(deckhand.CardHandEnemy[cardplayed])
 	SetPontuation()
@@ -241,7 +258,60 @@ func CheckFullZone(idBattleZone: int, IsAlly:bool):
 		pass
 	pass
 
+func EndTurn():
+	ResolveAttacks()
+	
+	UpTurn()
+	pass
+
+func ResolveAttacks():
+	if(AllyAttacking==false):
+		for x in range(0, 3):
+			DamageAlly[x]=PontuationEnemy[x]-PontuationAlly[x]
+			if(DamageAlly[x]<0):
+				DamageAlly[x]=0
+	else:
+		for x in range(0, 3):
+			DamageEnemy[x]=PontuationAlly[x]-PontuationEnemy[x]
+			if(DamageEnemy[x]<0):
+				DamageEnemy[x]=0
+		pass
+	PlayAnimatioAttack()
+	
+	
+	
+	pass
+
+func PlayAnimatioAttack():
+	print("AnimationAttacks")
+	for x in range(0, 3):
+		SetDamage(DamageEnemy[x],false)
+		pass
+	for x in range(0, 3):
+		SetDamage(DamageAlly[x],true)
+		pass
+	
+	
+	
+	pass
+func SetDamage(Damage:int, AllyDamaged:bool):
+	if(AllyDamaged==true):
+		LifeAlly-=Damage
+		LifeAllyT.value=LifeAlly
+		pass
+	
+	else:
+		LifeEnemy-=Damage
+		LifeEnemyT.value=LifeEnemy
+		pass
+	
+	pass
+
 func UpTurn():
+	
+	
+	
+	
 	ResetZones()
 	AllyAttacking=!AllyAttacking
 	if(AllyAttacking==false):
@@ -265,6 +335,7 @@ func ResetZones():
 			BattleZoneArrayEnemy[x][y].Reset()
 			pass
 	pass
+	SetPontuation()	
 func UndoPlay():
 	for x in range(0, 4):
 		if(deckhand.CardHand[x].idcard!=0):
@@ -274,8 +345,9 @@ func UndoPlay():
 		for y in range(0, 3):
 			BattleZoneArray[x][y].Reset()
 			pass
-	
+		
 	pass
+	SetPontuation()
 
 
 
@@ -316,7 +388,7 @@ func PlayButtonPressed() -> void:
 
 
 func TurnBeta() -> void:
-	UpTurn()
+	EndTurn()
 	pass # Replace with function body.
 
 

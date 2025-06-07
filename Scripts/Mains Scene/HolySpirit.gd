@@ -8,7 +8,7 @@ extends Node
 signal releaseHand
 signal updateCards
 func CardHandRelease(idcard:int):
-	print("oooo")
+
 	releaseHand.emit()
 	pass
 

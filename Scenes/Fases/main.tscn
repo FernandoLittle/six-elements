@@ -25,7 +25,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.94762)
 
 [node name="Scripts" type="Node" parent="."]
 
-[node name="God" type="Node" parent="Scripts" node_paths=PackedStringArray("deckhand", "BattleCards", "BattleZone1", "BattleZone2", "BattleZone3", "BattleZone1Enemy", "BattleZone2Enemy", "BattleZone3Enemy", "PontuationAllyT", "PontuationEnemyT", "ElementAllyS", "ElementEnemyS")]
+[node name="God" type="Node" parent="Scripts" node_paths=PackedStringArray("deckhand", "BattleCards", "BattleZone1", "BattleZone2", "BattleZone3", "BattleZone1Enemy", "BattleZone2Enemy", "BattleZone3Enemy", "PontuationAllyT", "PontuationEnemyT", "ElementAllyS", "ElementEnemyS", "LifeAllyT", "LifeEnemyT")]
 script = ExtResource("3_cjuxf")
 deckhand = NodePath("../DeckAndHand")
 BattleCards = [NodePath("../../Scene2D/CardsPlayed/Ally1/Card1"), NodePath("../../Scene2D/CardsPlayed/Ally2/Card1"), NodePath("../../Scene2D/CardsPlayed/Ally3/Card1")]
@@ -45,6 +45,8 @@ DiceElementEnemy = Array[int]([1, 2, 3, 4, 5, 6])
 ElementIcons = Array[Texture]([ExtResource("2_c00yc"), ExtResource("3_bw8i8"), ExtResource("4_esyc8"), ExtResource("5_mpm8g"), ExtResource("6_h8pvo"), ExtResource("7_edwym")])
 ElementAllyS = NodePath("../../Scene2D/Dice/ElementAlly")
 ElementEnemyS = NodePath("../../Scene2D/Dice/ElementEnemy")
+LifeAllyT = NodePath("../../Scene2D/Lifes/ProgressBarAlly")
+LifeEnemyT = NodePath("../../Scene2D/Lifes/Enemy")
 
 [node name="DeckAndHand" type="Node" parent="Scripts" node_paths=PackedStringArray("CardHand", "CardHandEnemy", "carddatabase")]
 script = ExtResource("4_dxd41")
@@ -414,6 +416,26 @@ offset_top = 430.0
 offset_right = 1220.0
 offset_bottom = 551.0
 text = "Beta Turn UP"
+
+[node name="Lifes" type="Node2D" parent="Scene2D"]
+
+[node name="ProgressBarAlly" type="ProgressBar" parent="Scene2D/Lifes"]
+self_modulate = Color(0, 1, 1, 1)
+offset_left = 1137.0
+offset_top = 118.0
+offset_right = 1409.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+value = 76.22
+
+[node name="Enemy" type="ProgressBar" parent="Scene2D/Lifes"]
+self_modulate = Color(1, 0, 0, 1)
+offset_left = 1137.0
+offset_top = 179.0
+offset_right = 1409.0
+offset_bottom = 206.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+value = 82.71
 
 [connection signal="mouse_entered" from="Scene2D/PlayArea/PlayArea1" to="Scripts/God" method="Area1Enter"]
 [connection signal="mouse_exited" from="Scene2D/PlayArea/PlayArea1" to="Scripts/God" method="Area1Exit"]

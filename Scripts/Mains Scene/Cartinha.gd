@@ -44,7 +44,7 @@ class_name Cartinha
 #air=1 water=2 fire=3 earth=4 light=5 darkness=6
 
 func _ready():
-	print("koko")
+
 	HolySpirit.updateCards.connect(SetAttributes1)
 	pass
 
