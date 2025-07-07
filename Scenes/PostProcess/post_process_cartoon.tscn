@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://i28d3jlpsm1p"]
+
+[ext_resource type="Shader" uid="uid://df8xkvj4y3rhd" path="res://Scenes/Attacks/ToonPostProcess.gdshader" id="1_rtxkg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wq6dh"]
+render_priority = -1
+shader = ExtResource("1_rtxkg")
+shader_parameter/cut = 0.92
+shader_parameter/line_color = Color(0.043, 0.282, 0.467, 1)
+shader_parameter/background_color = Color(0.408, 0.969, 0.694, 1)
+shader_parameter/offseto = 0.5
+shader_parameter/pixelz = 0.001
+shader_parameter/rotation1 = 1.0
+shader_parameter/rotation2 = 1.0
+shader_parameter/fraction = 100.0
+shader_parameter/colorfull = 3.015
+shader_parameter/power = 1.0
+shader_parameter/shadowpower = 0.0
+shader_parameter/shadowpower2 = 0.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_1d7st"]
+material = SubResource("ShaderMaterial_wq6dh")
+flip_faces = true
+size = Vector2(2, 2)
+
+[node name="PostProcessCartoon" type="Node3D"]
+
+[node name="PostProcess" type="MeshInstance3D" parent="."]
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_1d7st")

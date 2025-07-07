@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://y0kow6r0estm"
+path="res://.godot/imported/Perdrinha3.obj-569d7bc017c32e162561da8b8857b860.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Perdrinha3.obj-569d7bc017c32e162561da8b8857b860.mesh"]
+
+source_file="res://EffectsMaterials/Stones/Perdrinha3.obj"
+dest_files=["res://.godot/imported/Perdrinha3.obj-569d7bc017c32e162561da8b8857b860.mesh", "res://.godot/imported/Perdrinha3.obj-569d7bc017c32e162561da8b8857b860.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

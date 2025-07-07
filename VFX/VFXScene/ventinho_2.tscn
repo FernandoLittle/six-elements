@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=3 uid="uid://cqbjmmhevn0ma"]
+
+[ext_resource type="Shader" uid="uid://dswh4iilygq17" path="res://VFX/Shaders/Ventinho.tres" id="1_y7sv2"]
+[ext_resource type="Texture2D" uid="uid://dqnb1qrt42w2r" path="res://VFX/VFXCollection/kenney_particle-pack/PNG (Transparent)/flame_03.png" id="2_y7sv2"]
+
+[sub_resource type="Curve" id="Curve_xwvpr"]
+_data = [Vector2(0.0152905, 0.84939), 0.0, 0.0, 0, 0, Vector2(0.336391, 0.793903), 0.0, 0.0, 0, 0, Vector2(0.724771, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_q0x26"]
+curve = SubResource("Curve_xwvpr")
+
+[sub_resource type="Curve" id="Curve_b61j8"]
+_data = [Vector2(0.00305811, 0.413415), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_q3q4t"]
+_limits = [0.0, 13.05, 0.0, 1.0]
+_data = [Vector2(0, 2.18826), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_5p8u7"]
+_data = [Vector2(0, 0.429268), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_5lcwv"]
+curve_x = SubResource("Curve_b61j8")
+curve_y = SubResource("Curve_q3q4t")
+curve_z = SubResource("Curve_5p8u7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jit68"]
+particle_flag_align_y = true
+emission_shape = 2
+emission_sphere_radius = 0.63
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+radial_velocity_min = 0.599978
+radial_velocity_max = 0.599978
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveXYZTexture_5lcwv")
+alpha_curve = SubResource("CurveTexture_q0x26")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ro65a"]
+render_priority = 0
+shader = ExtResource("1_y7sv2")
+shader_parameter/Velocity = 2.115
+shader_parameter/Texture2DParameter = ExtResource("2_y7sv2")
+
+[sub_resource type="QuadMesh" id="QuadMesh_v6ytw"]
+material = SubResource("ShaderMaterial_ro65a")
+
+[node name="Ventinho2" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25559, 0, 0)
+amount = 26
+lifetime = 0.4
+explosiveness = 0.94
+process_material = SubResource("ParticleProcessMaterial_jit68")
+draw_pass_1 = SubResource("QuadMesh_v6ytw")

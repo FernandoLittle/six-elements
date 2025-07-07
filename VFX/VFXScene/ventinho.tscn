@@ -1,0 +1,61 @@
+[gd_scene load_steps=12 format=3 uid="uid://bmpfjfuei458q"]
+
+[ext_resource type="Shader" uid="uid://dswh4iilygq17" path="res://VFX/Shaders/Ventinho.tres" id="1_843v8"]
+[ext_resource type="Texture2D" uid="uid://cghbt5bj6jgq6" path="res://VFX/VFXCollection/kenney_particle-pack/PNG (Transparent)/light_01.png" id="2_d4yfe"]
+
+[sub_resource type="Curve" id="Curve_bs64t"]
+_data = [Vector2(0.0152905, 0.84939), 0.0, 0.0, 0, 0, Vector2(0.336391, 0.793903), 0.0, 0.0, 0, 0, Vector2(0.724771, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_fisg5"]
+curve = SubResource("Curve_bs64t")
+
+[sub_resource type="Curve" id="Curve_gyffw"]
+_data = [Vector2(0.00305811, 0.413415), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_d46ig"]
+_limits = [0.0, 13.05, 0.0, 1.0]
+_data = [Vector2(0, 2.18826), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_insdq"]
+_data = [Vector2(0, 0.429268), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_7pnwq"]
+curve_x = SubResource("Curve_gyffw")
+curve_y = SubResource("Curve_d46ig")
+curve_z = SubResource("Curve_insdq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wfntw"]
+particle_flag_align_y = true
+emission_shape = 2
+emission_sphere_radius = 0.58
+spread = 0.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+radial_velocity_min = 0.999978
+radial_velocity_max = 1.99998
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveXYZTexture_7pnwq")
+alpha_curve = SubResource("CurveTexture_fisg5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cxnfi"]
+render_priority = 0
+shader = ExtResource("1_843v8")
+shader_parameter/Velocity = 2.19
+shader_parameter/Texture2DParameter = ExtResource("2_d4yfe")
+
+[sub_resource type="QuadMesh" id="QuadMesh_2i0ph"]
+material = SubResource("ShaderMaterial_cxnfi")
+
+[node name="Ventinho1" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25559, 0, 0)
+amount = 101
+lifetime = 0.39
+explosiveness = 0.81
+process_material = SubResource("ParticleProcessMaterial_wfntw")
+draw_pass_1 = SubResource("QuadMesh_2i0ph")

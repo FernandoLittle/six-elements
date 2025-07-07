@@ -1,0 +1,471 @@
+[gd_scene load_steps=22 format=3 uid="uid://mqwwqw01ftmw"]
+
+[ext_resource type="ArrayMesh" uid="uid://cyq5auq4n58y8" path="res://EffectsMaterials/Stones/Perdrinha6.obj" id="1_ew10v"]
+[ext_resource type="Texture2D" uid="uid://xmjehieh3ga7" path="res://EffectsMaterials/Stones/Small_clr.tga.png" id="2_1ob5r"]
+[ext_resource type="Texture2D" uid="uid://chlvclmfbagf7" path="res://EffectsMaterials/Stones/small_nrm.png" id="3_wq6dh"]
+[ext_resource type="Shader" uid="uid://df8xkvj4y3rhd" path="res://Scenes/Attacks/ToonPostProcess.gdshader" id="4_1ob5r"]
+[ext_resource type="ArrayMesh" uid="uid://bwp7jp7qyoavr" path="res://EffectsMaterials/Stones/Perdrinha2.obj" id="4_3lo7u"]
+[ext_resource type="ArrayMesh" uid="uid://y0kow6r0estm" path="res://EffectsMaterials/Stones/Perdrinha3.obj" id="5_4eb6n"]
+[ext_resource type="ArrayMesh" uid="uid://b7cuxqr1rtpuv" path="res://EffectsMaterials/Stones/Perdrinha4.obj" id="6_n8nxy"]
+[ext_resource type="ArrayMesh" uid="uid://bgjyc4bdymgv4" path="res://EffectsMaterials/Stones/Perdrinha1.obj" id="7_e57h0"]
+[ext_resource type="ArrayMesh" uid="uid://bojwkcpad4r3q" path="res://EffectsMaterials/Stones/Perdrinha7.obj" id="8_fh5ah"]
+[ext_resource type="Texture2D" uid="uid://c2kcwl336f88d" path="res://EffectsMaterials/Stones/RachaduraTrue2.png" id="10_sa6h6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_372sh"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.327662, 0.116583, 4.81308e-08, 1)
+albedo_texture = ExtResource("2_1ob5r")
+metallic_specular = 0.0
+roughness = 0.74
+normal_enabled = true
+normal_texture = ExtResource("3_wq6dh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3lo7u"]
+render_priority = -1
+shader = ExtResource("4_1ob5r")
+shader_parameter/cut = 0.92
+shader_parameter/line_color = Color(0.043, 0.282, 0.467, 1)
+shader_parameter/background_color = Color(0.408, 0.969, 0.694, 1)
+shader_parameter/offseto = 0.5
+shader_parameter/pixelz = 0.001
+shader_parameter/rotation1 = 1.0
+shader_parameter/rotation2 = 1.0
+shader_parameter/fraction = 100.0
+shader_parameter/colorfull = 3.0
+shader_parameter/power = 1.315
+shader_parameter/shadowpower = 0.0
+shader_parameter/shadowpower2 = 0.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_372sh"]
+material = SubResource("ShaderMaterial_3lo7u")
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_31dwa"]
+size = Vector2(7.99, 17.095)
+
+[sub_resource type="Animation" id="Animation_q2nk0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spike1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.454716, 2.82705)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Spike2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.454716, 1.4354)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Spike3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.139775, -0.564909, -0.585678)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Rachadura1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Rachadura2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Rachadura3:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ParticlesPedrinhas:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ParticlesPedrinhas:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.295348, 0.319159, 3.19274)]
+}
+
+[sub_resource type="Animation" id="Animation_2ft01"]
+resource_name = "SpikeAttack"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spike1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.133333, 0, 0.2, 0.5, 0.566667, 2.5, 2.53333, 2.56667, 2.6, 2.88104),
+"transitions": PackedFloat32Array(1, 1.7411, 1.7411, 1, 1, 1, 1, 1, 1, 1.7411),
+"update": 0,
+"values": [Vector3(0, -0.305, 2.827), Vector3(0, -3.36891, 4.40942), Vector3(0, -3.36891, 4.40942), Vector3(0, -0.2, 2.827), Vector3(0, -0.46, 2.827), Vector3(0, -0.454716, 2.82705), Vector3(0, -0.55403, 2.82705), Vector3(0, -0.535282, 2.82705), Vector3(0, -0.554575, 2.82705), Vector3(0, -3.36891, 4.40942)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Spike2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.666667, 0.733333, 2.5, 2.53333, 2.56667, 2.6, 2.88104),
+"transitions": PackedFloat32Array(1.93187, 1.93187, 1, 1, 1, 1, 1, 1, 1.93187),
+"update": 0,
+"values": [Vector3(0, -3.36891, 3.01777), Vector3(0, -3.36891, 3.01777), Vector3(0, 0.045, 1.435), Vector3(0, -0.47, 1.435), Vector3(0, -0.454716, 1.4354), Vector3(0, -0.6762, 1.4354), Vector3(0, -0.698208, 1.4354), Vector3(0, -0.523291, 1.4354), Vector3(0, -3.36891, 3.01777)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Spike3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.666667, 0.933333, 1, 2.5, 2.53333, 2.56667, 2.6, 2.88104),
+"transitions": PackedFloat32Array(1.86607, 1.86607, 1, 1, 1, 1, 1, 1, 1.86607),
+"update": 0,
+"values": [Vector3(-0.139775, -3.47911, 0.996696), Vector3(-0.139775, -3.47911, 0.996696), Vector3(-0.14, -0.01, -0.586), Vector3(-0.14, -0.596, -0.586), Vector3(-0.139775, -0.564909, -0.585678), Vector3(-0.139775, -0.676606, -0.585678), Vector3(-0.139775, -0.638925, -0.585678), Vector3(-0.139775, -0.543776, -0.585678), Vector3(-0.139775, -3.47911, 0.996696)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Rachadura1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.366667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Rachadura2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.656667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Rachadura3:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.916667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ParticlesPedrinhas:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ParticlesPedrinhas:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.2, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.295348, 0.319159, 4.01649), Vector3(-0.295348, 0.319159, -0.982263)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dp0xt"]
+_data = {
+&"RESET": SubResource("Animation_q2nk0"),
+&"SpikeAttack": SubResource("Animation_2ft01")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4eb6n"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("10_sa6h6")
+
+[sub_resource type="QuadMesh" id="QuadMesh_11unv"]
+material = SubResource("StandardMaterial3D_4eb6n")
+size = Vector2(3, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lhcip"]
+albedo_color = Color(0.362835, 0.129738, 0, 1)
+albedo_texture = ExtResource("2_1ob5r")
+metallic_specular = 0.0
+roughness = 0.0
+normal_enabled = true
+normal_texture = ExtResource("3_wq6dh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kicy4"]
+emission_shape = 1
+emission_sphere_radius = 1.61
+angle_min = 1.07288e-05
+angle_max = 180.0
+inherit_velocity_ratio = 0.5
+direction = Vector3(0, 1, 0.2)
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = -1.60933e-05
+scale_min = 0.1
+scale_max = 0.3
+collision_mode = 1
+collision_friction = 0.39
+collision_bounce = 0.25
+
+[node name="SpikeAttack" type="Node3D"]
+
+[node name="Spike1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.592795, 0, 0, 0, 1.9619, 0.313586, 0, -0.995415, 0.618058, 0, -0.454716, 2.82705)
+mesh = ExtResource("1_ew10v")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="Spike2" type="MeshInstance3D" parent="Spike1"]
+transform = Transform3D(0.576431, 0, 0, 0, 0.174305, -0.0884374, 0, 0.280727, 0.553295, 0.802833, 0.223634, 0.360175)
+mesh = ExtResource("4_3lo7u")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="Spike7" type="MeshInstance3D" parent="Spike1"]
+transform = Transform3D(0.264847, 0, 0, 0, 0.174305, -0.0884374, 0, 0.280727, 0.553295, -0.190622, 0.052196, 1.0661)
+mesh = ExtResource("4_3lo7u")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="Spike8" type="MeshInstance3D" parent="Spike1"]
+transform = Transform3D(0.700372, 0, 0, 0, 0.0606585, -0.0884374, 0, 0.0976937, 0.553295, -0.681949, 0.100931, 0.899708)
+mesh = ExtResource("1_ew10v")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="Spike3" type="MeshInstance3D" parent="Spike1"]
+transform = Transform3D(0.576431, 0, 0, 0, 0.174305, -0.0884374, 0, 0.280727, 0.553295, -1.1261, 0.223634, 0.360175)
+mesh = ExtResource("5_4eb6n")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="Spike4" type="MeshInstance3D" parent="Spike1"]
+transform = Transform3D(0.576431, 0, 0, 0, 0.174305, -0.0884374, 0, 0.280727, 0.553295, -0.232102, 0.271975, -0.22934)
+mesh = ExtResource("5_4eb6n")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="Spike5" type="MeshInstance3D" parent="Spike1"]
+transform = Transform3D(0.366062, 0, 0, 0, 0.0972863, -0.0884374, 0, 0.156685, 0.553295, 0.298736, 0.271975, -0.22934)
+mesh = ExtResource("5_4eb6n")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="Spike6" type="MeshInstance3D" parent="Spike1"]
+transform = Transform3D(0.366062, 0, 0, 0, 0.0972863, -0.0884374, 0, 0.156685, 0.553295, -1.2391, 0.271975, -0.22934)
+mesh = ExtResource("5_4eb6n")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="Spike2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.32677, -0.0528246, 0.00486027, 0.00279132, 2.49568, 0.153622, -0.007362, -1.39843, 0.273974, 0, -0.454716, 1.4354)
+mesh = ExtResource("6_n8nxy")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="Spike3" type="MeshInstance3D" parent="Spike2"]
+transform = Transform3D(1.0454, 0, 0, 0, 0.13402, -0.0679981, 0, 0.619339, 1.22068, 1.456, 0.257207, -0.735899)
+mesh = ExtResource("5_4eb6n")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="Spike7" type="MeshInstance3D" parent="Spike2"]
+transform = Transform3D(0.480321, 0, 0, 0, 0.13402, -0.0679981, 0, 0.619339, 1.22068, -0.345709, 0.12539, 0.821509)
+mesh = ExtResource("4_3lo7u")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="Spike8" type="MeshInstance3D" parent="Spike2"]
+transform = Transform3D(1.27018, 0, 0, 0, 0.0466394, -0.0679981, 0, 0.215532, 1.22068, -1.23677, 0.162862, 0.454419)
+mesh = ExtResource("5_4eb6n")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="Spike4" type="MeshInstance3D" parent="Spike2"]
+transform = Transform3D(1.0454, 0, 0, 0, 0.13402, -0.0679981, 0, 0.619339, 1.22068, -2.04227, 0.257207, -0.735899)
+mesh = ExtResource("6_n8nxy")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="Spike5" type="MeshInstance3D" parent="Spike2"]
+transform = Transform3D(1.0454, 0, 0, 0, 0.13402, -0.0679981, 0, 0.619339, 1.22068, -0.420935, 0.294375, -2.03649)
+mesh = ExtResource("1_ew10v")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="Spike6" type="MeshInstance3D" parent="Spike2"]
+transform = Transform3D(0.663884, 0, 0, 0, 0.0748019, -0.0679981, 0, 0.345678, 1.22068, 0.541782, 0.294375, -2.03649)
+mesh = ExtResource("7_e57h0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="Spike9" type="MeshInstance3D" parent="Spike2"]
+transform = Transform3D(0.663884, 0, 0, 0, 0.0748019, -0.0679981, 0, 0.345678, 1.22068, -2.24721, 0.294375, -2.03649)
+mesh = ExtResource("5_4eb6n")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="Spike3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.783807, 0.0277607, -0.016738, 0.00871853, 2.67435, 0.310409, 0.0237851, -1.89512, 0.437798, -0.139775, -0.564909, -0.585678)
+mesh = ExtResource("8_fh5ah")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="Spike4" type="MeshInstance3D" parent="Spike3"]
+transform = Transform3D(0.322452, 0.00017399, 0.0285939, 0.00219832, 0.0877765, -0.070292, -0.02103, 0.347643, 0.661403, 0.388228, 0.221869, 0.149391)
+mesh = ExtResource("7_e57h0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="Spike7" type="MeshInstance3D" parent="Spike3"]
+transform = Transform3D(0.647736, 0.000140489, 0.0296245, 0.00441595, 0.070876, -0.0728256, -0.0422448, 0.280707, 0.685242, 0.282827, 0.131936, 0.621936)
+mesh = ExtResource("1_ew10v")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="Spike8" type="MeshInstance3D" parent="Spike3"]
+transform = Transform3D(0.528675, 7.59152e-05, 0.0290039, 0.00360425, 0.0382983, -0.0712999, -0.0344797, 0.151682, 0.670887, -0.331707, 0.121123, 0.843943)
+mesh = ExtResource("5_4eb6n")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="Spike5" type="MeshInstance3D" parent="Spike3"]
+transform = Transform3D(0.435119, 0.000218144, 0.0290039, 0.00296643, 0.110052, -0.0712999, -0.028378, 0.435864, 0.670887, -0.697668, 0.212692, 0.227491)
+mesh = ExtResource("4_3lo7u")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="Spike6" type="MeshInstance3D" parent="Spike3"]
+transform = Transform3D(0.435119, 0.000218144, 0.0290039, 0.00296643, 0.110052, -0.0712999, -0.028378, 0.435864, 0.670887, -0.0507023, 0.262647, -0.551314)
+mesh = ExtResource("1_ew10v")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="Spike9" type="MeshInstance3D" parent="Spike3"]
+transform = Transform3D(0.276322, 0.000121756, 0.0290039, 0.00188383, 0.0614241, -0.0712999, -0.0180215, 0.243273, 0.670887, 0.35, 0.265378, -0.577447)
+mesh = ExtResource("7_e57h0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="Spike10" type="MeshInstance3D" parent="Spike3"]
+transform = Transform3D(0.276322, 0.000121756, 0.0290039, 0.00188383, 0.0614241, -0.0712999, -0.0180215, 0.243273, 0.670887, -0.810834, 0.257464, -0.501739)
+mesh = ExtResource("5_4eb6n")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_372sh")
+
+[node name="PostProcess" type="MeshInstance3D" parent="."]
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_372sh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_31dwa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dp0xt")
+}
+
+[node name="Rachadura1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.428792, 0.00912648, 3.5171)
+visible = false
+mesh = SubResource("QuadMesh_11unv")
+
+[node name="Rachadura2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0864602, -0.996255, -4.35477e-08, 0, -4.37114e-08, 1, -0.996255, -0.0864602, -3.7793e-09, -0.428792, 0.00912648, 1.20036)
+visible = false
+mesh = SubResource("QuadMesh_11unv")
+
+[node name="Rachadura3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.745674, -0.666311, -2.91254e-08, 0, -4.37114e-08, 1, -0.666311, -0.745674, -3.25944e-08, -0.428792, 0.00912648, -0.722228)
+visible = false
+mesh = SubResource("QuadMesh_11unv")
+
+[node name="ParticlesPedrinhas" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.295348, 0.319159, 3.19274)
+material_override = SubResource("StandardMaterial3D_lhcip")
+emitting = false
+amount = 30
+lifetime = 1.15
+explosiveness = 0.11
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_kicy4")
+draw_pass_1 = ExtResource("4_3lo7u")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(3.6076, 0, 0, 0, 1, 0, 0, 0, 8.47302, -0.0762492, -0.863609, -0.920588)
