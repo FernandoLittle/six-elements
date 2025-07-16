@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://e0uwrd3mye5f"]
+[gd_scene load_steps=58 format=3 uid="uid://e0uwrd3mye5f"]
 
 [ext_resource type="Shader" uid="uid://bj8ltm4whi0ov" path="res://VFX/Slash/Slash.tres" id="1_3xap5"]
 [ext_resource type="Texture2D" uid="uid://b03gc8jqjwr81" path="res://VFX/VFXCollection/kenney_particle-pack/PNG (Black background)/circle_05.png" id="2_kf18t"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bm5di7mxilqgm" path="res://VFX/VFXCollection/kenney_particle-pack/PNG (Black background)/flame_03.png" id="6_p8qld"]
 [ext_resource type="Texture2D" uid="uid://cfspsr1fjkoe2" path="res://VFX/VFXCollection/kenney_particle-pack/PNG (Black background)/magic_03.png" id="7_npl8b"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_dcce8"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wb6kk"]
 noise_type = 0
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gghjx"]
@@ -16,7 +16,7 @@ width = 112
 height = 687
 seamless = true
 seamless_blend_skirt = 1.0
-noise = SubResource("FastNoiseLite_dcce8")
+noise = SubResource("FastNoiseLite_wb6kk")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6t26u"]
 render_priority = 0
@@ -117,24 +117,34 @@ alpha_curve = SubResource("CurveTexture_tinn0")
 inner_radius = 0.753
 outer_radius = 0.52
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dcce8"]
+noise_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0uq2i"]
+width = 112
+height = 687
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_dcce8")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1nfyq"]
 render_priority = 0
 shader = ExtResource("4_6sxop")
 shader_parameter/Texture2DParameter = ExtResource("6_p8qld")
 shader_parameter/Power = 1.28
 shader_parameter/ColorParameter = Color(2.762, 4.42, 9.392, 1)
-shader_parameter/Noise = SubResource("NoiseTexture2D_gghjx")
+shader_parameter/Noise = SubResource("NoiseTexture2D_0uq2i")
 
 [sub_resource type="Curve" id="Curve_31h64"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.529825, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_n8j4l"]
+[sub_resource type="CurveTexture" id="CurveTexture_y3fc3"]
 curve = SubResource("Curve_31h64")
 
 [sub_resource type="Gradient" id="Gradient_qvi4e"]
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_goh7n"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4ephj"]
 gradient = SubResource("Gradient_qvi4e")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gi3xo"]
@@ -144,8 +154,18 @@ angle_min = 1.07288e-05
 angle_max = 360.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.0
-color_ramp = SubResource("GradientTexture1D_goh7n")
-alpha_curve = SubResource("CurveTexture_n8j4l")
+color_ramp = SubResource("GradientTexture1D_4ephj")
+alpha_curve = SubResource("CurveTexture_y3fc3")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2154r"]
+noise_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_j26ci"]
+width = 112
+height = 687
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_2154r")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7b02y"]
 render_priority = 0
@@ -153,20 +173,20 @@ shader = ExtResource("4_6sxop")
 shader_parameter/Texture2DParameter = ExtResource("7_npl8b")
 shader_parameter/Power = 4.53
 shader_parameter/ColorParameter = Color(8.288, 5.525, 2.21, 1)
-shader_parameter/Noise = SubResource("NoiseTexture2D_gghjx")
+shader_parameter/Noise = SubResource("NoiseTexture2D_j26ci")
 
 [sub_resource type="Curve" id="Curve_xxkbf"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.459649, 1), 0.0, 0.0, 0, 0, Vector2(0.985965, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_5ndu3"]
+[sub_resource type="CurveTexture" id="CurveTexture_n8i2m"]
 curve = SubResource("Curve_xxkbf")
 
 [sub_resource type="Gradient" id="Gradient_yqd4l"]
 offsets = PackedFloat32Array(0, 0.50193, 0.984556)
 colors = PackedColorArray(1, 1, 1, 1, 0.111197, 0.111197, 0.111197, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_wnkmu"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_naty4"]
 gradient = SubResource("Gradient_yqd4l")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4var1"]
@@ -178,8 +198,8 @@ angle_min = -51.0
 angle_max = 94.2
 gravity = Vector3(0, 0, 0)
 scale_min = 0.0
-color_ramp = SubResource("GradientTexture1D_wnkmu")
-alpha_curve = SubResource("CurveTexture_5ndu3")
+color_ramp = SubResource("GradientTexture1D_naty4")
+alpha_curve = SubResource("CurveTexture_n8i2m")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6xm8n"]
 render_priority = 0
@@ -237,6 +257,7 @@ inner_radius = 2.5
 outer_radius = 0.2
 
 [node name="SlashLab" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.102028, 0, 0.0338478)
 
 [node name="SlashTeste" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.3437, 0, 0.566771)

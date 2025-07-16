@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://bx8qrdmmjssot"]
+
+[ext_resource type="Shader" uid="uid://fxsl2wnaiawc" path="res://VFX/Shaders/FogoScroll2.tres" id="1_y75ew"]
+[ext_resource type="Texture2D" uid="uid://boepbawo2533a" path="res://VFX/VFXCollection/kenney-particle-pack-7e801dc538996622a91327bb1dd5879cf977aa09/addons/kenney_particle_pack/flame_03.png" id="2_ex0xc"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_morim"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mgi12"]
+frequency = 0.005
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_32yyi"]
+width = 917
+height = 67
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_mgi12")
+
+[sub_resource type="Gradient" id="Gradient_s4jp8"]
+offsets = PackedFloat32Array(0, 0.184502, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.0768358, 0.0768358, 0.0768358, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hk3nq"]
+gradient = SubResource("Gradient_s4jp8")
+fill_from = Vector2(0, 0.662393)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yp7pl"]
+render_priority = 0
+shader = ExtResource("1_y75ew")
+shader_parameter/Velocity = -3.535
+shader_parameter/Texture2DParameter = SubResource("NoiseTexture2D_32yyi")
+shader_parameter/Texture2DParameter2 = ExtResource("2_ex0xc")
+shader_parameter/Texture2DParameter3 = SubResource("GradientTexture2D_hk3nq")
+shader_parameter/ColorParameter = Color(1, 1.2, 1.31, 1)
+shader_parameter/transparency = 2.035
+shader_parameter/Contrast = 1.195
+
+[node name="ImpactGuard" type="MeshInstance3D"]
+transform = Transform3D(4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 1.50996e-07, -1.50996e-07, -8.74228e-08, -1, 0, 0, 0)
+mesh = SubResource("SphereMesh_morim")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_yp7pl")

@@ -14,6 +14,7 @@ func _input(event):
 	
 func Attack(AttackName:String,AttackAttribute:int):
 	print("Attack")
+	print(test_attack_name)
 	Stances(AttackAttribute);
 	await get_tree().create_timer(0.2).timeout
 	TreeAnime.set("parameters/TransitionB/transition_request", AttackName)

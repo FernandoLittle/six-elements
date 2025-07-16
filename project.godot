@@ -17,6 +17,7 @@ config/icon="res://Test Images/icon.svg"
 [autoload]
 
 HolySpirit="*res://Scripts/Mains Scene/HolySpirit.gd"
+AutoloadBoneco="*res://Scripts/Mains Scene/AnimationFolder/AutoloadBoneco.gd"
 
 [display]
 
