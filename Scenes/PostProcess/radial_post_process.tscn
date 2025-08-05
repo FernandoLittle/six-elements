@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://chahtdwa3oegs"]
+
+[ext_resource type="Shader" uid="uid://bojctvlie4pcr" path="res://Scenes/PostProcess/RadialBlurPostProcess.gdshader" id="1_8abjp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wvw5b"]
+shader = ExtResource("1_8abjp")
+shader_parameter/Iterations = 5
+shader_parameter/blurParameter = 0.024
+shader_parameter/centerx = 0.5
+shader_parameter/centery = 0.5
+
+[node name="RadialPostProcess" type="ColorRect"]
+material = SubResource("ShaderMaterial_wvw5b")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 7.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

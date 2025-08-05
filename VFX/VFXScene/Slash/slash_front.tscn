@@ -1,0 +1,42 @@
+[gd_scene load_steps=10 format=3 uid="uid://b7ndhu7a81565"]
+
+[ext_resource type="Shader" uid="uid://irnv4uvywtab" path="res://VFX/Shaders/SlashRaio.tres" id="1_ah43v"]
+[ext_resource type="Texture2D" uid="uid://cvp4p4r7y55lx" path="res://VFX/VFXCollection/MyTextures/TextureImpact1.png" id="2_5iw0r"]
+
+[sub_resource type="Curve" id="Curve_nb4yd"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.216867, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_8hgr5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_fcfsa"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_3t723"]
+curve_x = SubResource("Curve_nb4yd")
+curve_y = SubResource("Curve_8hgr5")
+curve_z = SubResource("Curve_fcfsa")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cg1n8"]
+gravity = Vector3(0, 0, 0)
+scale_min = 8.0
+scale_max = 8.0
+scale_curve = SubResource("CurveXYZTexture_3t723")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m6dua"]
+render_priority = 0
+shader = ExtResource("1_ah43v")
+shader_parameter/ColorParameter = Color(1, 4.42, 6.63, 1)
+shader_parameter/Texture2DParameter = ExtResource("2_5iw0r")
+
+[sub_resource type="QuadMesh" id="QuadMesh_qe52j"]
+material = SubResource("ShaderMaterial_m6dua")
+
+[node name="SlashFront" type="GPUParticles3D"]
+amount = 1
+lifetime = 0.75
+process_material = SubResource("ParticleProcessMaterial_cg1n8")
+draw_pass_1 = SubResource("QuadMesh_qe52j")

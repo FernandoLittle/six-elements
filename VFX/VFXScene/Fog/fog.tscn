@@ -1,0 +1,71 @@
+[gd_scene load_steps=17 format=3 uid="uid://dgkqi0wygmt1l"]
+
+[ext_resource type="Shader" uid="uid://dil8708ofm2a6" path="res://VFX/VFXScene/Fog/Fog.tres" id="1_q764f"]
+[ext_resource type="Texture2D" uid="uid://cem1y7e2nu56q" path="res://VFX/VFXCollection/kenney_particle-pack/PNG (Black background)/flame_04.png" id="2_tvi3g"]
+[ext_resource type="Texture2D" uid="uid://dqdqq8nc6jysv" path="res://VFX/VFXCollection/MyTextures/MySpark.png" id="3_exkjf"]
+
+[sub_resource type="Curve" id="Curve_goh7n"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.6, 0.0914985), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_cjagg"]
+curve = SubResource("Curve_goh7n")
+
+[sub_resource type="Gradient" id="Gradient_sgnkn"]
+offsets = PackedFloat32Array(0, 0.258687, 0.559846, 0.764479, 1)
+colors = PackedColorArray(0.462291, 0.462291, 0.462291, 1, 0.705882, 1, 1, 1, 1, 1, 1, 1, 1, 0.552941, 1, 1, 0.389287, 0.389287, 0.389287, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ats08"]
+gradient = SubResource("Gradient_sgnkn")
+
+[sub_resource type="Gradient" id="Gradient_5ndu3"]
+colors = PackedColorArray(0.454902, 0.505882, 0.52549, 1, 0.513726, 1, 0.423529, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_p3vqp"]
+gradient = SubResource("Gradient_5ndu3")
+
+[sub_resource type="Curve" id="Curve_wnkmu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_6ehrv"]
+_limits = [0.0, 4.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1.86455), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_b42jt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_aaq2s"]
+curve_x = SubResource("Curve_wnkmu")
+curve_y = SubResource("Curve_6ehrv")
+curve_z = SubResource("Curve_b42jt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k4ov5"]
+emission_shape_scale = Vector3(2.75, 4.44, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 14.795, 0)
+scale_min = 3.1
+scale_max = 7.1
+scale_curve = SubResource("CurveXYZTexture_aaq2s")
+color_ramp = SubResource("GradientTexture1D_p3vqp")
+color_initial_ramp = SubResource("GradientTexture1D_ats08")
+alpha_curve = SubResource("CurveTexture_cjagg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s5v3m"]
+render_priority = 0
+shader = ExtResource("1_q764f")
+shader_parameter/MainTexture = ExtResource("2_tvi3g")
+shader_parameter/ColorParameter = Color(1.13, 1.27, 1.64, 1)
+shader_parameter/SubtractTexture = ExtResource("3_exkjf")
+
+[sub_resource type="QuadMesh" id="QuadMesh_v8s3e"]
+material = SubResource("ShaderMaterial_s5v3m")
+
+[node name="Fog" type="GPUParticles3D"]
+amount = 46
+lifetime = 0.85
+process_material = SubResource("ParticleProcessMaterial_k4ov5")
+draw_pass_1 = SubResource("QuadMesh_v8s3e")

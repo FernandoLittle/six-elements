@@ -23,6 +23,7 @@ AutoloadBoneco="*res://Scripts/Mains Scene/AnimationFolder/AutoloadBoneco.gd"
 
 window/size/viewport_width=1600
 window/size/viewport_height=1000
+window/size/mode=2
 
 [input]
 

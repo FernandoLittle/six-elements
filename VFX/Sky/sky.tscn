@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://oa1ros5l5cte"]
+
+[ext_resource type="Shader" uid="uid://bfudnnfmgrf61" path="res://VFX/Sky/NormalSky.gdshader" id="1_046y7"]
+[ext_resource type="Texture2D" uid="uid://bd46iw1omqnbc" path="res://VFX/Sky/Texturelabs_Sky_139M.jpg" id="2_e71m6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vx08f"]
+shader = ExtResource("1_046y7")
+shader_parameter/sky_tex = ExtResource("2_e71m6")
+shader_parameter/energy = 1.0
+shader_parameter/gamma = 1.496
+shader_parameter/scale = Vector3(1.075, 1.07, 0.785)
+shader_parameter/triplanar_blend_power = 4.0
+shader_parameter/seamless_blend = 0.44
+
+[sub_resource type="Sky" id="Sky_0brlj"]
+sky_material = SubResource("ShaderMaterial_vx08f")
+
+[sub_resource type="Environment" id="Environment_vjq8m"]
+background_mode = 2
+sky = SubResource("Sky_0brlj")
+ambient_light_source = 3
+
+[node name="Sky" type="WorldEnvironment"]
+environment = SubResource("Environment_vjq8m")

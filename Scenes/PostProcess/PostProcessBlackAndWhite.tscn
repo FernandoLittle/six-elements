@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cacfrkfdrgac0"]
+
+[ext_resource type="Shader" uid="uid://ddxyts44j0ayv" path="res://Scenes/PostProcess/blackwhite.gdshader" id="1_gmcex"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_njjhb"]
+shader = ExtResource("1_gmcex")
+shader_parameter/StepPower = 0.0
+shader_parameter/Invert = 0.0
+
+[node name="PostProcessBlackAndWhite" type="ColorRect"]
+material = SubResource("ShaderMaterial_njjhb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3

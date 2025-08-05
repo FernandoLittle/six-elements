@@ -4,7 +4,12 @@ class_name AnimationAttacks
 @export var testanime:int
 @export var test_attack_name:String
 @export var test_attack_type:int
+@export var butaoTeste: Node
 
+func _ready() -> void:
+	#test
+	#Attack(test_attack_name,test_attack_type)
+	pass
 func _input(event):
 	if event.is_action_pressed("E"):
 		Stances(testanime)
@@ -49,4 +54,5 @@ func Stances(stance:int):
 
 func _on_button_pressed() -> void:
 	Attack(test_attack_name,test_attack_type)
+	butaoTeste.hide()
 	pass # Replace with function body.

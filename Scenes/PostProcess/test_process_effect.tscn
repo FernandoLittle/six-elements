@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://76pmurteb4ia"]
+
+[ext_resource type="Texture2D" uid="uid://d0bdxn0r7xcyy" path="res://Test Images/icon.svg" id="1_o6bgo"]
+[ext_resource type="PackedScene" uid="uid://cqa1ghn11p1sa" path="res://Scenes/PostProcess/normal_blur_post_process.tscn" id="2_sbluo"]
+[ext_resource type="PackedScene" uid="uid://chahtdwa3oegs" path="res://Scenes/PostProcess/radial_post_process.tscn" id="3_sbluo"]
+
+[node name="TestProcessEffect" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(97, 21)
+scale = Vector2(5.97656, 7.46875)
+texture = ExtResource("1_o6bgo")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(820, 477.5)
+scale = Vector2(13.8438, 9.42969)
+texture = ExtResource("1_o6bgo")
+
+[node name="NormalBlurPostProcess" parent="CanvasLayer" instance=ExtResource("2_sbluo")]
+
+[node name="RadialPostProcess" parent="CanvasLayer" instance=ExtResource("3_sbluo")]

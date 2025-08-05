@@ -1,9 +1,9 @@
 [gd_scene load_steps=58 format=3 uid="uid://e0uwrd3mye5f"]
 
-[ext_resource type="Shader" uid="uid://bj8ltm4whi0ov" path="res://VFX/Slash/Slash.tres" id="1_3xap5"]
+[ext_resource type="Shader" uid="uid://bj8ltm4whi0ov" path="res://VFX/VFXScene/Slash/Slash.tres" id="1_3xap5"]
 [ext_resource type="Texture2D" uid="uid://b03gc8jqjwr81" path="res://VFX/VFXCollection/kenney_particle-pack/PNG (Black background)/circle_05.png" id="2_kf18t"]
-[ext_resource type="ArrayMesh" uid="uid://1bbbk64nulxc" path="res://VFX/Slash/Slash.obj" id="3_plnnc"]
-[ext_resource type="Shader" uid="uid://dkk6iqd4m7nft" path="res://VFX/Slash/Spiral2.tres" id="4_6sxop"]
+[ext_resource type="ArrayMesh" uid="uid://1bbbk64nulxc" path="res://VFX/VFXScene/Slash/Slash.obj" id="3_plnnc"]
+[ext_resource type="Shader" uid="uid://dkk6iqd4m7nft" path="res://VFX/VFXScene/Slash/Spiral2.tres" id="4_6sxop"]
 [ext_resource type="Texture2D" uid="uid://cem1y7e2nu56q" path="res://VFX/VFXCollection/kenney_particle-pack/PNG (Black background)/flame_04.png" id="5_arbrg"]
 [ext_resource type="Texture2D" uid="uid://bm5di7mxilqgm" path="res://VFX/VFXCollection/kenney_particle-pack/PNG (Black background)/flame_03.png" id="6_p8qld"]
 [ext_resource type="Texture2D" uid="uid://cfspsr1fjkoe2" path="res://VFX/VFXCollection/kenney_particle-pack/PNG (Black background)/magic_03.png" id="7_npl8b"]

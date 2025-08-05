@@ -47,7 +47,7 @@ float smin(float d1, float d2, float k) {
 }
 float smax(float d1, float d2, float k) {
 	float h = clamp( 0.5 - 0.5*(d2-d1)/k, 0.0, 1.0 );
-	return mix( d2, d1, h ) + k*h*(1.0-h); 
+	return mix( d2, d1, h ) + k*h*(1.0-h);
 }
 float cellular_noise_2d_smooth(vec2 coord, vec2 size, float offset, float seed, float smoothness) {
 	vec2 o = floor(coord)+rand2(vec2(seed, 1.0-seed))+size;
@@ -343,6 +343,3 @@ vec4 o465128_0_2_rgba = o465128_0_b;
 	ALPHA = color_tex.a;
 
 }
-
-
-

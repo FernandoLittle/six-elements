@@ -1,0 +1,76 @@
+[gd_scene load_steps=16 format=3 uid="uid://78oeovkxhvn2"]
+
+[ext_resource type="Shader" uid="uid://c0a0qhg2n2neu" path="res://VFX/VFXScene/Raios/Raios.tres" id="1_748h0"]
+[ext_resource type="Texture2D" uid="uid://dgxs8g0qhy0bu" path="res://VFX/VFXCollection/MyTextures/3Raios.png" id="2_iuyfs"]
+
+[sub_resource type="Curve" id="Curve_s8n4c"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.285141, 0.500853), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_dl1qp"]
+curve = SubResource("Curve_s8n4c")
+
+[sub_resource type="Gradient" id="Gradient_f3a8y"]
+offsets = PackedFloat32Array(0, 0.183857, 0.210762, 0.753363, 0.775785, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0, 1, 0.396078, 0, 0, 1, 0.752941, 0, 0, 1, 0.756863, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n7qew"]
+gradient = SubResource("Gradient_f3a8y")
+
+[sub_resource type="Curve" id="Curve_n7qew"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.192771, 0.755973), 0.0, 0.0, 0, 0, Vector2(0.433735, 1), 0.0, 0.0, 0, 0, Vector2(0.694779, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_o67j7"]
+_limits = [0.0, 3.15, 0.0, 1.0]
+_data = [Vector2(0.0120482, 1.47287), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_jtg0b"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_voqe1"]
+curve_x = SubResource("Curve_n7qew")
+curve_y = SubResource("Curve_o67j7")
+curve_z = SubResource("Curve_jtg0b")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_goh7n"]
+emission_shape_scale = Vector3(6.695, 1.115, 0.045)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+gravity = Vector3(0, 0, 0)
+scale_min = 3.4
+scale_max = 3.4
+scale_curve = SubResource("CurveXYZTexture_voqe1")
+color_initial_ramp = SubResource("GradientTexture1D_n7qew")
+alpha_curve = SubResource("CurveTexture_dl1qp")
+
+[sub_resource type="Gradient" id="Gradient_o67j7"]
+offsets = PackedFloat32Array(0, 0.700441, 0.810573, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jtg0b"]
+gradient = SubResource("Gradient_o67j7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_038ig"]
+render_priority = 0
+shader = ExtResource("1_748h0")
+shader_parameter/Polarscale = 0.77
+shader_parameter/Texture2DParameter = ExtResource("2_iuyfs")
+shader_parameter/GradientSelect = SubResource("GradientTexture2D_jtg0b")
+shader_parameter/ColorParameter = Color(5, 8, 16, 1)
+shader_parameter/Pow = 2.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_cjagg"]
+material = SubResource("ShaderMaterial_038ig")
+size = Vector2(0.585, 1.16)
+
+[node name="Raios" type="GPUParticles3D"]
+amount = 9
+lifetime = 0.2
+explosiveness = 0.29
+process_material = SubResource("ParticleProcessMaterial_goh7n")
+draw_pass_1 = SubResource("QuadMesh_cjagg")

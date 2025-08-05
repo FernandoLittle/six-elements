@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6pecd0bj4oy7"
-path.s3tc="res://.godot/imported/YCircle3_texture_1.png-0648d8c7322e4ec66953fbd061c4fef9.s3tc.ctex"
+path.s3tc="res://.godot/imported/YCircle3_texture_1.png-bb998e138d49c4abe4bbad3890adcdfc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://VFX/Circles/YakuzaCircle/YCircle3_texture_1.png"
-dest_files=["res://.godot/imported/YCircle3_texture_1.png-0648d8c7322e4ec66953fbd061c4fef9.s3tc.ctex"]
+source_file="res://VFX/VFXScene/Circles/YakuzaCircle/YCircle3_texture_1.png"
+dest_files=["res://.godot/imported/YCircle3_texture_1.png-bb998e138d49c4abe4bbad3890adcdfc.s3tc.ctex"]
 
 [params]
 
