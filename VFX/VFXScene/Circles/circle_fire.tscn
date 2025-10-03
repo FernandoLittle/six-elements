@@ -1,11 +1,11 @@
 [gd_scene load_steps=24 format=3 uid="uid://bqme1lryna0fj"]
 
 [ext_resource type="Shader" uid="uid://63kqa2h1nmtm" path="res://VFX/VFXScene/Circles/FireCircle.tres" id="1_g5d17"]
-[ext_resource type="Texture2D" uid="uid://dv73qb5qxrns1" path="res://VFX/VFXCollection/kenney_particle-pack/PNG (Transparent)/circle_05.png" id="2_p3u3d"]
-[ext_resource type="Texture2D" uid="uid://xavpdiclkyya" path="res://VFX/VFXCollection/kenney_particle-pack/PNG (Black background)/Rotated/spark_06_rotated.png" id="3_1h070"]
+[ext_resource type="Texture2D" uid="uid://dv73qb5qxrns1" path="res://TrueVFXCollection/kenney_particle-pack/PNG (Transparent)/circle_05.png" id="2_p3u3d"]
+[ext_resource type="Texture2D" uid="uid://xavpdiclkyya" path="res://TrueVFXCollection/kenney_particle-pack/PNG (Black background)/Rotated/spark_06_rotated.png" id="3_1h070"]
 [ext_resource type="Shader" uid="uid://dil8708ofm2a6" path="res://VFX/VFXScene/Fog/Fog.tres" id="4_la8mv"]
-[ext_resource type="Texture2D" uid="uid://cy0m2dlvcddsh" path="res://VFX/VFXCollection/kenney_particle-pack/PNG (Transparent)/flare_01.png" id="5_3hi2g"]
-[ext_resource type="Texture2D" uid="uid://bi42gtn3rluvi" path="res://VFX/VFXCollection/kenney_particle-pack/PNG (Transparent)/fire_01.png" id="6_6ha0a"]
+[ext_resource type="Texture2D" uid="uid://cy0m2dlvcddsh" path="res://TrueVFXCollection/kenney_particle-pack/PNG (Transparent)/flare_01.png" id="5_3hi2g"]
+[ext_resource type="Texture2D" uid="uid://bi42gtn3rluvi" path="res://TrueVFXCollection/kenney_particle-pack/PNG (Transparent)/fire_01.png" id="6_6ha0a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fa6ja"]
 render_priority = 0

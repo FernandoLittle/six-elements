@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bmpfjfuei458q"]
 
 [ext_resource type="Shader" uid="uid://dswh4iilygq17" path="res://VFX/Shaders/Ventinho.tres" id="1_843v8"]
-[ext_resource type="Texture2D" uid="uid://cghbt5bj6jgq6" path="res://VFX/VFXCollection/kenney_particle-pack/PNG (Transparent)/light_01.png" id="2_d4yfe"]
+[ext_resource type="Texture2D" uid="uid://cghbt5bj6jgq6" path="res://TrueVFXCollection/kenney_particle-pack/PNG (Transparent)/light_01.png" id="2_d4yfe"]
 
 [sub_resource type="Curve" id="Curve_bs64t"]
 _data = [Vector2(0.0152905, 0.84939), 0.0, 0.0, 0, 0, Vector2(0.336391, 0.793903), 0.0, 0.0, 0, 0, Vector2(0.724771, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

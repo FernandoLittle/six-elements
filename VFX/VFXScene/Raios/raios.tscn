@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://78oeovkxhvn2"]
 
 [ext_resource type="Shader" uid="uid://c0a0qhg2n2neu" path="res://VFX/VFXScene/Raios/Raios.tres" id="1_748h0"]
-[ext_resource type="Texture2D" uid="uid://dgxs8g0qhy0bu" path="res://VFX/VFXCollection/MyTextures/3Raios.png" id="2_iuyfs"]
+[ext_resource type="Texture2D" uid="uid://dgxs8g0qhy0bu" path="res://TrueVFXCollection/MyTextures/3Raios.png" id="2_iuyfs"]
 
 [sub_resource type="Curve" id="Curve_s8n4c"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.285141, 0.500853), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

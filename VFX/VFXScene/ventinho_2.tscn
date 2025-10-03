@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cqbjmmhevn0ma"]
 
 [ext_resource type="Shader" uid="uid://dswh4iilygq17" path="res://VFX/Shaders/Ventinho.tres" id="1_y7sv2"]
-[ext_resource type="Texture2D" uid="uid://dqnb1qrt42w2r" path="res://VFX/VFXCollection/kenney_particle-pack/PNG (Transparent)/flame_03.png" id="2_y7sv2"]
+[ext_resource type="Texture2D" uid="uid://dqnb1qrt42w2r" path="res://TrueVFXCollection/kenney_particle-pack/PNG (Transparent)/flame_03.png" id="2_y7sv2"]
 
 [sub_resource type="Curve" id="Curve_xwvpr"]
 _data = [Vector2(0.0152905, 0.84939), 0.0, 0.0, 0, 0, Vector2(0.336391, 0.793903), 0.0, 0.0, 0, 0, Vector2(0.724771, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

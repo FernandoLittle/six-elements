@@ -1,0 +1,100 @@
+[gd_resource type="VisualShader" load_steps=13 format=3 uid="uid://3vdl561v80xv"]
+
+[sub_resource type="Curve" id="Curve_yljw8"]
+_data = [Vector2(0.382979, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_sjyx6"]
+curve_x = SubResource("Curve_yljw8")
+
+[sub_resource type="VisualShaderNodeCurveXYZTexture" id="VisualShaderNodeCurveXYZTexture_46ias"]
+texture = SubResource("CurveXYZTexture_sjyx6")
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_b8sao"]
+default_input_values = [0, 0.0, 1, 0.4]
+operator = 2
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_3vbfi"]
+parameter_name = "Texture2DParameter"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_0g8lg"]
+source = 5
+
+[sub_resource type="VisualShaderNodeStep" id="VisualShaderNodeStep_4eus1"]
+
+[sub_resource type="VisualShaderNodeSmoothStep" id="VisualShaderNodeSmoothStep_opcaf"]
+default_input_values = [0, 0.0, 1, 0.0, 2, 0.5]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_wc14s"]
+input_name = "time"
+
+[sub_resource type="Curve" id="Curve_lc1os"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.337937, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_m0vwd"]
+curve_x = SubResource("Curve_lc1os")
+
+[sub_resource type="VisualShaderNodeCurveXYZTexture" id="VisualShaderNodeCurveXYZTexture_tahte"]
+texture = SubResource("CurveXYZTexture_m0vwd")
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D curve3d_frg_10;
+uniform sampler2D curve3d_frg_9;
+uniform sampler2D Texture2DParameter;
+
+
+
+void fragment() {
+// Input:7
+	float n_out7p0 = TIME;
+
+
+// FloatOp:11
+	float n_in11p1 = 0.40000;
+	float n_out11p0 = n_out7p0 * n_in11p1;
+
+
+// CurveXYZTexture:10
+	vec3 n_out10p0 = texture(curve3d_frg_10, vec2(n_out11p0)).rgb;
+
+
+// CurveXYZTexture:9
+	vec3 n_out9p0 = texture(curve3d_frg_9, vec2(n_out11p0)).rgb;
+
+
+	vec4 n_out3p0;
+// Texture2D:3
+	n_out3p0 = texture(Texture2DParameter, UV);
+
+
+// SmoothStep:5
+	float n_out5p0 = smoothstep(n_out10p0.x, n_out9p0.x, n_out3p0.x);
+
+
+// Output:0
+	ALPHA = n_out5p0;
+
+
+}
+"
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_3vbfi")
+nodes/fragment/2/position = Vector2(-720, 140)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_0g8lg")
+nodes/fragment/3/position = Vector2(-360, 160)
+nodes/fragment/4/node = SubResource("VisualShaderNodeStep_4eus1")
+nodes/fragment/4/position = Vector2(0, 80)
+nodes/fragment/5/node = SubResource("VisualShaderNodeSmoothStep_opcaf")
+nodes/fragment/5/position = Vector2(-20, 320)
+nodes/fragment/7/node = SubResource("VisualShaderNodeInput_wc14s")
+nodes/fragment/7/position = Vector2(-2060, 320)
+nodes/fragment/9/node = SubResource("VisualShaderNodeCurveXYZTexture_tahte")
+nodes/fragment/9/position = Vector2(-1060, 600)
+nodes/fragment/10/node = SubResource("VisualShaderNodeCurveXYZTexture_46ias")
+nodes/fragment/10/position = Vector2(-1560, 880)
+nodes/fragment/11/node = SubResource("VisualShaderNodeFloatOp_b8sao")
+nodes/fragment/11/position = Vector2(-1560, 240)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 3, 0, 4, 1, 3, 0, 5, 2, 9, 0, 5, 1, 10, 0, 5, 0, 7, 0, 11, 0, 11, 0, 9, 0, 11, 0, 10, 0, 9, 0, 4, 0, 5, 0, 0, 1)

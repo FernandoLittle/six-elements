@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://b7ndhu7a81565"]
 
 [ext_resource type="Shader" uid="uid://irnv4uvywtab" path="res://VFX/Shaders/SlashRaio.tres" id="1_ah43v"]
-[ext_resource type="Texture2D" uid="uid://cvp4p4r7y55lx" path="res://VFX/VFXCollection/MyTextures/TextureImpact1.png" id="2_5iw0r"]
+[ext_resource type="Texture2D" uid="uid://cvp4p4r7y55lx" path="res://TrueVFXCollection/MyTextures/TextureImpact1.png" id="2_5iw0r"]
 
 [sub_resource type="Curve" id="Curve_nb4yd"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.216867, 1), 0.0, 0.0, 0, 0]

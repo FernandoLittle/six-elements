@@ -1,0 +1,99 @@
+[gd_scene load_steps=21 format=3 uid="uid://cnpgbw2ptccr7"]
+
+[ext_resource type="Shader" uid="uid://bvo7tit6ys0ci" path="res://TrueVFXCollection/ScriptShaders/FireS.tres" id="1_gsh3k"]
+[ext_resource type="Texture2D" uid="uid://cn7yxgv2h85yq" path="res://TrueVFXCollection/MyTextures/Flame01.png" id="2_vqxrb"]
+[ext_resource type="Shader" uid="uid://qw2cmg6sfmt1" path="res://TrueVFXCollection/ScriptShaders/EmissionTeste.tres" id="3_3n0m1"]
+[ext_resource type="Shader" uid="uid://b0jdu6i0gu74h" path="res://TrueVFXCollection/ScriptShaders/BlendNoise.tres" id="4_3h7gj"]
+[ext_resource type="Shader" uid="uid://bsj5h8w8rfqh" path="res://TrueVFXCollection/ScriptShaders/LerpColorido.tres" id="5_dvvjr"]
+[ext_resource type="Texture2D" uid="uid://cfspsr1fjkoe2" path="res://TrueVFXCollection/kenney_particle-pack/PNG (Black background)/magic_03.png" id="5_rrhde"]
+[ext_resource type="Texture2D" uid="uid://crdwndeosoa1m" path="res://TrueVFXCollection/kenney_particle-pack/PNG (Black background)/flame_06.png" id="6_l8nul"]
+[ext_resource type="Texture2D" uid="uid://b14iwpdjhq3to" path="res://TrueVFXCollection/kenney_particle-pack/PNG (Black background)/smoke_04.png" id="6_mhlub"]
+[ext_resource type="Texture2D" uid="uid://b4ilsjorrieww" path="res://TrueVFXCollection/kenney_particle-pack/PNG (Black background)/light_03.png" id="7_yo0gu"]
+
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ae7yg"]
+render_priority = 0
+shader = ExtResource("1_gsh3k")
+shader_parameter/Power = null
+shader_parameter/Vector2Parameter = Vector2(1, 1)
+shader_parameter/noisevelocity = null
+shader_parameter/Erasenoise = null
+shader_parameter/EmissionColor = null
+shader_parameter/Texture2DParameter = ExtResource("2_vqxrb")
+
+[sub_resource type="Curve" id="Curve_m8t8v"]
+max_value = 18.81
+_data = [Vector2(0.00917431, 1.24022), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_1lyi3"]
+curve = SubResource("Curve_m8t8v")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3dax8"]
+gravity = Vector3(0, 0, 0)
+color = Color(4, 1.25, 0.2, 1)
+emission_curve = SubResource("CurveTexture_1lyi3")
+
+[sub_resource type="QuadMesh" id="QuadMesh_sf86m"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_khkqw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bfjpe"]
+render_priority = 0
+shader = ExtResource("3_3n0m1")
+shader_parameter/ColorParameter = Color(0, 0, 1, 1)
+shader_parameter/Emission = Color(12.432, 30.271, 33.514, 0.714)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5kkxn"]
+render_priority = 0
+shader = ExtResource("4_3h7gj")
+shader_parameter/ColorParameter = null
+shader_parameter/MarskVelocity = null
+shader_parameter/Noise2X = -0.57
+shader_parameter/Noise2y = -0.57
+shader_parameter/Texture2Power = null
+shader_parameter/Texture2PowerMax = null
+shader_parameter/Noise1X = 0.15
+shader_parameter/Noise1y = 0.415
+shader_parameter/Texture1Power = null
+shader_parameter/Texture1PowerMax = null
+shader_parameter/TextureMask = ExtResource("7_yo0gu")
+shader_parameter/Noise2 = ExtResource("6_l8nul")
+shader_parameter/Noise1 = ExtResource("5_rrhde")
+
+[sub_resource type="QuadMesh" id="QuadMesh_myqqd"]
+material = SubResource("ShaderMaterial_5kkxn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yre1j"]
+render_priority = 0
+shader = ExtResource("5_dvvjr")
+shader_parameter/ColorParameter2 = Color(1, 0, 0, 1)
+shader_parameter/ColorParameter = Color(1, 1, 0, 1)
+shader_parameter/PowerParameter = 1.0
+shader_parameter/LerpPower = 0.165
+shader_parameter/PowerEmission = 1.965
+shader_parameter/Texture2DParameter = ExtResource("6_mhlub")
+
+[sub_resource type="QuadMesh" id="QuadMesh_78tke"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.71966, 0, 0)
+material_override = SubResource("ShaderMaterial_ae7yg")
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_3dax8")
+draw_pass_1 = SubResource("QuadMesh_sf86m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_khkqw")
+surface_material_override/0 = SubResource("ShaderMaterial_bfjpe")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72449, 0, 0)
+mesh = SubResource("QuadMesh_myqqd")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.25982, 0, 0)
+material_override = SubResource("ShaderMaterial_yre1j")
+mesh = SubResource("QuadMesh_78tke")

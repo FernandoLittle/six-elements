@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bx8qrdmmjssot"]
 
 [ext_resource type="Shader" uid="uid://fxsl2wnaiawc" path="res://VFX/Shaders/FogoScroll2.tres" id="1_y75ew"]
-[ext_resource type="Texture2D" uid="uid://boepbawo2533a" path="res://VFX/VFXCollection/kenney-particle-pack-7e801dc538996622a91327bb1dd5879cf977aa09/addons/kenney_particle_pack/flame_03.png" id="2_ex0xc"]
+[ext_resource type="Texture2D" uid="uid://boepbawo2533a" path="res://TrueVFXCollection/kenney-particle-pack-7e801dc538996622a91327bb1dd5879cf977aa09/addons/kenney_particle_pack/flame_03.png" id="2_ex0xc"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_morim"]
 
