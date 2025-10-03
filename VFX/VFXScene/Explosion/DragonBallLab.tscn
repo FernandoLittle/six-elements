@@ -13,6 +13,7 @@ shader = ExtResource("1_x8n4g")
 shader_parameter/FloatParameter = 1.31
 shader_parameter/FloatParameter2 = 5.835
 shader_parameter/ColorParameter = Color(1.54, 1.83, 2, 1)
+shader_parameter/Alpha = 1.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_hgriv"]
 material = SubResource("ShaderMaterial_lefjw")
@@ -22,7 +23,7 @@ height = 6.0
 [sub_resource type="Environment" id="Environment_6qi5g"]
 background_energy_multiplier = 0.0
 glow_enabled = true
-glow_intensity = 1.02
+glow_intensity = 0.44
 glow_strength = 0.92
 glow_blend_mode = 0
 

@@ -21,5 +21,3 @@ void fragment() {
 	COLOR=vec4(finalcolor,finalcolor,finalcolor,1.0);
 
 }
-
-

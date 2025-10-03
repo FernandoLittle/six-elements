@@ -28,6 +28,13 @@ material = SubResource("ShaderMaterial_cibt7")
 flip_faces = true
 size = Vector2(2, 2)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7h1f"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_mdg1j"]
+material = SubResource("StandardMaterial3D_m7h1f")
+size = Vector2(500, 500)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vx08f"]
 shader = ExtResource("5_wt17f")
 shader_parameter/sky_tex = ExtResource("6_qjpf2")
@@ -37,28 +44,20 @@ shader_parameter/scale = Vector3(1.075, 1.07, 0.785)
 shader_parameter/triplanar_blend_power = 4.0
 shader_parameter/seamless_blend = 0.44
 
-[sub_resource type="Sky" id="Sky_0brlj"]
+[sub_resource type="Sky" id="Sky_cibt7"]
 sky_material = SubResource("ShaderMaterial_vx08f")
 
 [sub_resource type="Environment" id="Environment_grr67"]
 background_mode = 2
 background_energy_multiplier = 0.05
-sky = SubResource("Sky_0brlj")
+sky = SubResource("Sky_cibt7")
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
 reflected_light_source = 2
 glow_enabled = true
 glow_normalized = true
-glow_intensity = 0.15
-glow_strength = 0.36
+glow_intensity = 0.57
 glow_blend_mode = 0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7h1f"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="QuadMesh" id="QuadMesh_mdg1j"]
-material = SubResource("StandardMaterial3D_m7h1f")
-size = Vector2(500, 500)
 
 [node name="Animation Lab" type="Node3D"]
 
@@ -72,16 +71,13 @@ extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_0mfkf")
 skeleton = NodePath("")
 
-[node name="Sky" parent="." instance=ExtResource("4_cibt7")]
-environment = SubResource("Environment_grr67")
-
 [node name="Chao" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+visible = false
 mesh = SubResource("QuadMesh_mdg1j")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.76041, 0)
-visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.61816)
@@ -89,99 +85,19 @@ visible = false
 light_energy = 3.035
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6457, 0.864771)
-light_energy = 0.42
+transform = Transform3D(1, 0, 0, 0, 0.247777, -0.968817, 0, 0.968817, 0.247777, 0.367664, 8.02646, 0.55886)
+light_energy = 0.2
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+light_bake_mode = 0
 
-[node name="Boneco" parent="." instance=ExtResource("23_b7cii")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.740908)
+[node name="Boneco3" parent="." instance=ExtResource("23_b7cii")]
 
-[node name="Boneco2" parent="." instance=ExtResource("23_b7cii")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -1.68427)
+[node name="Camera" parent="Boneco3" index="0"]
+transform = Transform3D(-0.998383, -0.052356, -0.0221474, -0.0544044, 0.992968, 0.105145, 0.0164867, 0.10618, -0.99421, -0.0854886, 1.26875, -5.08336)
 
-[node name="Camera" parent="Boneco2" index="0"]
-transform = Transform3D(-0.998383, -0.0523559, -0.0221474, -0.0544044, 0.992967, 0.105145, 0.0164867, 0.10618, -0.99421, -0.0854886, 1.26875, -5.08336)
-visible = false
+[node name="Sky" parent="." instance=ExtResource("4_cibt7")]
+environment = SubResource("Environment_grr67")
 
-[node name="CharacterBody3D" parent="Boneco2" index="1"]
-Ally = true
-
-[node name="Skeleton3D" parent="Boneco2/CharacterBody3D/BonecoMain/Armature" index="0"]
-bones/0/position = Vector3(0.174381, 0.84476, 0.0155432)
-bones/0/rotation = Quaternion(0.125819, 0.744292, -0.120671, 0.644699)
-bones/1/rotation = Quaternion(-0.011671, 0.484328, -0.069322, 0.872058)
-bones/2/rotation = Quaternion(0.00021099, -0.455589, -0.000392177, 0.89019)
-bones/3/rotation = Quaternion(0.00251565, 0.0123801, 0.0554182, 0.998383)
-bones/5/rotation = Quaternion(0.00951489, -0.252111, 0.0206525, 0.967431)
-bones/8/rotation = Quaternion(-0.48443, 0.570964, -0.526163, -0.403087)
-bones/9/rotation = Quaternion(0.455791, 0.431802, -0.488776, 0.605722)
-bones/10/position = Vector3(-9.53674e-09, 0.278415, -1.62125e-07)
-bones/10/rotation = Quaternion(0.248969, 0.181977, -0.213973, 0.926884)
-bones/11/rotation = Quaternion(-0.403827, -0.328859, 0.298872, 0.799657)
-bones/12/rotation = Quaternion(0.253284, 0.0616185, -0.22821, 0.938067)
-bones/13/rotation = Quaternion(0.0315067, 0.0432153, 0.700578, 0.711569)
-bones/14/rotation = Quaternion(0.0887417, 0.0597772, 0.141971, 0.984071)
-bones/17/position = Vector3(0.02145, 0.0956507, -0.00385186)
-bones/17/rotation = Quaternion(0.723371, 0.188584, 0.00323281, 0.664198)
-bones/19/rotation = Quaternion(0.767675, 0.0786075, -0.0297469, 0.635304)
-bones/20/rotation = Quaternion(0.717271, 0.0235507, 0.0994291, 0.689262)
-bones/22/rotation = Quaternion(0.723308, 0.188828, 0.00300866, 0.664199)
-bones/23/rotation = Quaternion(0.70756, 0.0812067, -0.0709915, 0.698373)
-bones/24/rotation = Quaternion(0.767694, 0.078393, -0.0298956, 0.635301)
-bones/25/rotation = Quaternion(0.743785, 0.0969457, -0.00318118, 0.661344)
-bones/27/rotation = Quaternion(0.723432, 0.188353, 0.00344551, 0.664197)
-bones/28/rotation = Quaternion(0.70758, 0.0810342, -0.0717395, 0.698296)
-bones/29/rotation = Quaternion(0.767645, 0.0788676, -0.0297624, 0.635307)
-bones/30/rotation = Quaternion(0.743651, 0.0974504, -0.00440265, 0.661413)
-bones/32/rotation = Quaternion(0.723503, 0.188089, 0.0036868, 0.664193)
-bones/33/rotation = Quaternion(0.707726, 0.079762, -0.0709947, 0.698371)
-bones/34/rotation = Quaternion(0.713751, -0.00790788, -0.0467367, 0.698793)
-bones/35/rotation = Quaternion(0.743928, 0.096269, -0.00284299, 0.661283)
-bones/37/rotation = Quaternion(0.484423, 0.57097, -0.526162, 0.40309)
-bones/38/rotation = Quaternion(0.401414, -0.264839, -0.0928706, 0.871838)
-bones/39/rotation = Quaternion(0.311826, 0.322072, 0.279518, 0.849061)
-bones/41/rotation = Quaternion(0.253096, -0.0613235, 0.227353, 0.938346)
-bones/42/rotation = Quaternion(0.412202, -0.0399817, -0.573164, 0.707088)
-bones/43/rotation = Quaternion(-0.0714458, 0.208102, -0.611679, 0.759893)
-bones/46/position = Vector3(-0.0221224, 0.0855411, -0.00208637)
-bones/46/rotation = Quaternion(0.690161, -0.0607562, 0.0526516, 0.719176)
-bones/47/rotation = Quaternion(0.621023, 0.136631, 0.0601099, 0.769447)
-bones/48/rotation = Quaternion(0.817024, 0.17972, 0.0789382, 0.542163)
-bones/49/rotation = Quaternion(0.66864, 0.146856, 0.0643686, 0.726093)
-bones/51/rotation = Quaternion(0.764046, -0.0442335, 0.083865, 0.638156)
-bones/52/rotation = Quaternion(0.621017, 0.136668, 0.0600458, 0.769451)
-bones/53/rotation = Quaternion(0.817013, 0.179765, 0.0789857, 0.542159)
-bones/54/rotation = Quaternion(0.668694, 0.146339, 0.0639663, 0.726183)
-bones/56/rotation = Quaternion(0.764044, -0.0442625, 0.0838893, 0.638153)
-bones/57/rotation = Quaternion(0.621024, 0.136634, 0.0600294, 0.769452)
-bones/58/rotation = Quaternion(0.817015, 0.179755, 0.0789742, 0.54216)
-bones/59/rotation = Quaternion(0.668593, 0.147454, 0.0649724, 0.725961)
-bones/61/position = Vector3(0.0392272, 0.0901127, -0.000813341)
-bones/61/rotation = Quaternion(0.76395, -0.0458202, 0.0851898, 0.637984)
-bones/62/rotation = Quaternion(0.621544, 0.134231, 0.059869, 0.769468)
-bones/63/rotation = Quaternion(0.81766, 0.176821, 0.0789405, 0.542157)
-bones/64/rotation = Quaternion(0.669141, 0.144379, 0.0638926, 0.72617)
-bones/66/rotation = Quaternion(-0.619092, 0.124218, 0.769295, 0.0973727)
-bones/68/rotation = Quaternion(0.509034, -0.11392, 0.118934, 0.844844)
-bones/69/rotation = Quaternion(0.360703, -0.0589502, 0.137848, 0.920552)
-bones/72/rotation = Quaternion(0.0682771, 0.476996, 0.87586, -0.0261181)
-bones/73/rotation = Quaternion(-0.366601, -2.55349e-07, -6.88151e-08, 0.930378)
-bones/74/rotation = Quaternion(0.4377, 0.306626, -0.063246, 0.842852)
-bones/78/rotation = Quaternion(-1.88314e-07, 0.707107, -0.707107, 1.88314e-07)
-bones/80/rotation = Quaternion(-9.4157e-08, 0.707107, -0.707107, 9.4157e-08)
-
-[node name="BoneAttachment3D" parent="Boneco2/CharacterBody3D/BonecoMain/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.685383, 0.721761, 0.0964969, 0.607278, -0.493417, -0.622699, -0.401827, 0.485387, -0.776489, 0.788184, 1.06849, 0.0518724)
-
-[node name="CircleYakuza3" parent="Boneco2/CharacterBody3D/BonecoMain/Armature/VFX/SwordAttack1/YakuzaCircle" index="0"]
-transform = Transform3D(-0.355726, 1.16353, -3.08453e-06, 1.16353, 0.355726, 0, 9.0183e-07, -2.94975e-06, -1.21669, 0, 0, 0)
-
-[node name="CircleYakuza2" parent="Boneco2/CharacterBody3D/BonecoMain/Armature/VFX/SwordAttack1/YakuzaCircle" index="1"]
-transform = Transform3D(-0.258625, -0.355968, -1.11548e-06, -0.355968, 0.258625, 0, 6.55662e-07, 9.02442e-07, -0.44, 0, 0, 0)
-
-[node name="CircleYakuzaBrilho" parent="Boneco2/CharacterBody3D/BonecoMain/Armature/VFX/SwordAttack1/YakuzaCircle" index="2"]
-transform = Transform3D(-0.165, 0, -2.49143e-08, 0, 0.165, 0, 2.49143e-08, 0, -0.165, 0, 0, 0)
-
-[node name="Button" parent="Boneco2/CharacterBody3D/BonecoMain" index="6"]
-visible = false
-
-[editable path="Boneco2"]
+[editable path="Boneco3"]

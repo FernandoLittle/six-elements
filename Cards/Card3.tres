@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://dd8jyqv3g5ngt"]
 
-[ext_resource type="Texture2D" uid="uid://dgopqh0kqc831" path="res://Test Images/w47lwoqlqnue1.webp" id="1_iyyfy"]
+[ext_resource type="Texture2D" uid="uid://dgopqh0kqc831" path="res://Lixo/Test Images/w47lwoqlqnue1.webp" id="1_iyyfy"]
 [ext_resource type="Script" uid="uid://c3dmp3ohpiryt" path="res://Scripts/Mains Scene/Card.gd" id="2_xhseh"]
 
 [resource]

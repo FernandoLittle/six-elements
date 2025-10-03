@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://e0uwrd3mye5f"]
+[gd_scene load_steps=59 format=3 uid="uid://e0uwrd3mye5f"]
 
 [ext_resource type="Shader" uid="uid://bj8ltm4whi0ov" path="res://VFX/VFXScene/Slash/Slash.tres" id="1_3xap5"]
 [ext_resource type="Texture2D" uid="uid://b03gc8jqjwr81" path="res://VFX/VFXCollection/kenney_particle-pack/PNG (Black background)/circle_05.png" id="2_kf18t"]
@@ -256,6 +256,9 @@ alpha_curve = SubResource("CurveTexture_b42jt")
 inner_radius = 2.5
 outer_radius = 0.2
 
+[sub_resource type="Environment" id="Environment_4jyg7"]
+background_energy_multiplier = 0.41
+
 [node name="SlashLab" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.102028, 0, 0.0338478)
 
@@ -319,3 +322,6 @@ randomness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_4fset")
 draw_pass_1 = SubResource("TorusMesh_h86p4")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4jyg7")
