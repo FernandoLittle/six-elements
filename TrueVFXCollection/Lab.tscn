@@ -31,7 +31,7 @@
 [ext_resource type="Shader" uid="uid://b0jdu6i0gu74h" path="res://TrueVFXCollection/ScriptShaders/BlendNoise.tres" id="27_163bh"]
 [ext_resource type="Texture2D" uid="uid://c0pyg08fn4shf" path="res://TrueVFXCollection/kenney_particle-pack/PNG (Black background)/flame_01.png" id="28_kdvg6"]
 [ext_resource type="Texture2D" uid="uid://b03gc8jqjwr81" path="res://TrueVFXCollection/kenney_particle-pack/PNG (Black background)/circle_05.png" id="29_ab5tu"]
-[ext_resource type="Shader" uid="uid://gqb4f260eaq4" path="res://TrueVFXCollection/ScriptShaders/BlendNoise2.tres" id="30_l32xk"]
+[ext_resource type="Shader" uid="uid://gqb4f260eaq4" path="res://TrueVFXCollection/BlendNoise2.tres" id="30_l32xk"]
 [ext_resource type="Texture2D" uid="uid://dr43i4ekkkkc5" path="res://TrueVFXCollection/MyTextures/MyChaos1.png" id="31_oan5o"]
 [ext_resource type="Texture2D" uid="uid://b45l7ilqx1egm" path="res://TrueVFXCollection/kenney_particle-pack/PNG (Transparent)/smoke_01.png" id="32_i418o"]
 [ext_resource type="Texture2D" uid="uid://dotwd33mfr38u" path="res://TrueVFXCollection/kenney_particle-pack/PNG (Black background)/spark_05.png" id="33_8a68m"]
@@ -64,21 +64,21 @@
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0120482, 0), 0.0, 0.0, 0, 0, Vector2(0.522088, 0.988908), 0.0, 0.0, 0, 0, Vector2(0.682731, 0), 0.0, 0.0, 0, 0, Vector2(0.97992, 0), 0.0, 0.0, 0, 0]
 point_count = 5
 
-[sub_resource type="CurveTexture" id="CurveTexture_10h1u"]
+[sub_resource type="CurveTexture" id="CurveTexture_kkdjm"]
 curve = SubResource("Curve_8m087")
 
 [sub_resource type="Gradient" id="Gradient_en7d7"]
 offsets = PackedFloat32Array(0, 0.695067)
 colors = PackedColorArray(0, 0, 0, 1, 0.427493, 0.427493, 0.427493, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_8m087"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6pvl3"]
 gradient = SubResource("Gradient_en7d7")
 
 [sub_resource type="Curve" id="Curve_kpyvk"]
 _data = [Vector2(0.0321285, 0), 0.0, 0.0, 0, 0, Vector2(0.477912, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_owsac"]
+[sub_resource type="CurveTexture" id="CurveTexture_x4c68"]
 curve = SubResource("Curve_kpyvk")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ifloq"]
@@ -89,11 +89,11 @@ angle_max = 720.0
 gravity = Vector3(0, 0, 0)
 scale_min = 20.0
 scale_max = 20.0
-scale_curve = SubResource("CurveTexture_owsac")
-color_ramp = SubResource("GradientTexture1D_8m087")
-alpha_curve = SubResource("CurveTexture_10h1u")
+scale_curve = SubResource("CurveTexture_x4c68")
+color_ramp = SubResource("GradientTexture1D_6pvl3")
+alpha_curve = SubResource("CurveTexture_kkdjm")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_iptbr"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mt4yw"]
 render_priority = 0
 shader = ExtResource("57_nwegt")
 shader_parameter/Velocity = 100.0
@@ -102,7 +102,7 @@ shader_parameter/Texture2DParameter = ExtResource("58_10h1u")
 shader_parameter/ColorParameter = Color(2.5, 0.9, 0, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_ajcnj"]
-material = SubResource("ShaderMaterial_iptbr")
+material = SubResource("ShaderMaterial_mt4yw")
 
 [sub_resource type="Gradient" id="Gradient_10h1u"]
 offsets = PackedFloat32Array(0, 0.910314)
@@ -148,19 +148,19 @@ material = SubResource("ShaderMaterial_ifloq")
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.116466, 0.345563), 0.0, 0.0, 0, 0, Vector2(0.959839, 0), -2.20424, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_cey2o"]
+[sub_resource type="CurveTexture" id="CurveTexture_rvhtr"]
 curve = SubResource("Curve_1a86c")
 
 [sub_resource type="Gradient" id="Gradient_cey2o"]
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ajcnj"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3d08r"]
 gradient = SubResource("Gradient_cey2o")
 
 [sub_resource type="Curve" id="Curve_8m272"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.570281, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_8m272"]
+[sub_resource type="CurveTexture" id="CurveTexture_7wao0"]
 curve = SubResource("Curve_8m272")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5r6ov"]
@@ -171,11 +171,11 @@ angle_max = 1.07288e-05
 gravity = Vector3(0, 0, 0)
 scale_min = 21.4
 scale_max = 28.15
-scale_curve = SubResource("CurveTexture_8m272")
-color_ramp = SubResource("GradientTexture1D_ajcnj")
-alpha_curve = SubResource("CurveTexture_cey2o")
+scale_curve = SubResource("CurveTexture_7wao0")
+color_ramp = SubResource("GradientTexture1D_3d08r")
+alpha_curve = SubResource("CurveTexture_rvhtr")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qv03g"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ph3be"]
 render_priority = 0
 shader = ExtResource("57_nwegt")
 shader_parameter/Velocity = 500.0
@@ -184,7 +184,7 @@ shader_parameter/Texture2DParameter = ExtResource("3_10h1u")
 shader_parameter/ColorParameter = Color(4.42, 1, 0.552, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_2r2pb"]
-material = SubResource("ShaderMaterial_qv03g")
+material = SubResource("ShaderMaterial_ph3be")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_nwegt"]
 frequency = 0.0186

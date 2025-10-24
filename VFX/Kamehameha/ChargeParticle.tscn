@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=3 uid="uid://ckcr41ppi8n4h"]
+
+[ext_resource type="Texture2D" uid="uid://cfspsr1fjkoe2" path="res://TrueVFXCollection/kenney_particle-pack/PNG (Black background)/magic_03.png" id="1_b7kuo"]
+
+[sub_resource type="Curve" id="Curve_bytw6"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.366279, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mr7qh"]
+curve = SubResource("Curve_bytw6")
+
+[sub_resource type="Curve" id="Curve_koty5"]
+_limits = [-4.0, 4.0, 0.0, 1.0]
+_data = [Vector2(0.00290698, -0.61959), 0.0, 0.0, 0, 0, Vector2(0.406977, -0.205012), 0.0, 0.0, 0, 0, Vector2(1, 4), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_np4aq"]
+curve = SubResource("Curve_koty5")
+
+[sub_resource type="Curve" id="Curve_psvqh"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1.00114), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_5gwur"]
+_limits = [0.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 5), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_vkvsw"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_rcyjy"]
+curve_x = SubResource("Curve_psvqh")
+curve_y = SubResource("Curve_5gwur")
+curve_z = SubResource("Curve_vkvsw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2evhh"]
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = 1.07288e-05
+angle_max = 360.0
+radial_velocity_min = -4.00002
+radial_velocity_max = -4.00002
+radial_velocity_curve = SubResource("CurveTexture_np4aq")
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+scale_min = 0.2
+scale_max = 0.2
+scale_over_velocity_curve = SubResource("CurveXYZTexture_rcyjy")
+color = Color(0, 1, 2, 1)
+alpha_curve = SubResource("CurveTexture_mr7qh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v6trv"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_b7kuo")
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_n1shh"]
+material = SubResource("StandardMaterial3D_v6trv")
+orientation = 0
+
+[node name="Node3D" type="Node3D"]
+
+[node name="ChargeParticle1" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.494, 1.60981, 1.26058)
+amount = 60
+lifetime = 2.0
+explosiveness = 0.77
+process_material = SubResource("ParticleProcessMaterial_2evhh")
+draw_pass_1 = SubResource("QuadMesh_n1shh")
