@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=4 uid="uid://ddhn5gee52a74"]
+[gd_scene load_steps=91 format=4 uid="uid://ddhn5gee52a74"]
 
 [ext_resource type="Shader" uid="uid://dx877qi5ss543" path="res://VFX/Kamehameha/ErosionScroll.tres" id="1_o50uk"]
 [ext_resource type="Shader" uid="uid://r86xa50rc2tq" path="res://VFX/Kamehameha/kamehameha.tres" id="1_puusl"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://ctm26awqxthwc" path="res://TrueVFXCollection/MyTextures/MyMancha7.png" id="13_v1a86"]
 [ext_resource type="Shader" uid="uid://ukkccq0s6i4t" path="res://VFX/Kamehameha/NIceCircle.gdshader" id="15_v1a86"]
 [ext_resource type="Shader" uid="uid://bo4vbsdl1vem2" path="res://VFX/Kamehameha/UltraCircle4.gdshader" id="16_v1a86"]
+[ext_resource type="Texture2D" uid="uid://bvtvt6p6yfvwh" path="res://TrueVFXCollection/MyTextures/Flare00.PNG" id="17_l8o24"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1x0to"]
 shading_mode = 0
@@ -277,7 +278,7 @@ shader_parameter/Alpha = 0.6
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_maobo"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_qubec"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_c10bf"]
 _surfaces = [{
 "aabb": AABB(-0.0153297, -0.0153297, -0.01, 0.0306595, 0.0306595, 0.00488692),
 "format": 34359742465,
@@ -305,7 +306,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("JDwsOop4WDsK1yO8WP9DOyBWdjypi6e7JOaNrpYpezypi6e7bJOwLja2XDsK1yO8PzvAOzgLaDypi6e77OyoOj3pSzsK1yO804kLPHzVUDypi6e75j31Ot+DNzsK1yO8GhEcOxoRHDsK1yO8Q5kxPEOZMTypi6e7fNVQPNOJCzypi6e734M3O+Y99ToK1yO8PelLO+zsqDoK1yO8OAtoPD87wDupi6e7inhYOyQ8LDoK1yO8IFZ2PFr/Qzupi6e7lil7PBelrq6pi6e7NrZcO/pS2S4K1yO8inhYOyE8LLoK1yO8IFZ2PFr/Q7upi6e7OAtoPD87wLupi6e7PelLO+zsqLoK1yO8fNVQPNOJC7ypi6e734M3O+Q99boK1yO8GhEcOxcRHLsK1yO8Q5kxPEOZMbypi6e704kLPHzVULypi6e75j31Ot+DN7sK1yO8PzvAOzgLaLypi6e77OyoOjvpS7sK1yO8JDwsOoh4WLsK1yO8WP9DOyBWdrypi6e7bJOwLja2XLsK1yO8JOaNrpYpe7ypi6e7Wv9DuyBWdrypi6e7ITwsuoh4WLsK1yO8PzvAuzgLaLypi6e77OyoujvpS7sK1yO85D31ut+DN7sK1yO804kLvHzVULypi6e7FxEcuxcRHLsK1yO8Q5kxvEOZMbypi6e7fNVQvNOJC7ypi6e734M3u+Q99boK1yO8PelLu+zsqLoK1yO8OAtovD87wLupi6e7inhYuyE8LLoK1yO8IFZ2vFr/Q7upi6e7lil7vBelrq6pi6e7NrZcu/pS2S4K1yO8inhYuyQ8LDoK1yO8IFZ2vFr/Qzupi6e7OAtovD87wDupi6e7PelLu+zsqDoK1yO8fNVQvNOJCzypi6e734M3u+Y99ToK1yO8FxEcuxoRHDsK1yO8Q5kxvEOZMTypi6e704kLvHzVUDypi6e75D31ut+DNzsK1yO87Oyouj3pSzsK1yO8PzvAuzgLaDypi6e7ITwsuop4WDsK1yO8Wv9DuyBWdjypi6e7JOaNrpYpezypi6e7bJOwLja2XDsK1yO8Wt0a+TwVncpa3Rr5PBWdyt7a//+ZDdPE3tr//5kN08R/4PLyfSW90n/g8vJ9Jb3SPuRz7UQzodk+5HPtRDOh2Y/oj+j/P//fj+iP6P8//99z7T7kukxc5nPtPuS6TFzm8vJ/4IJaQO3y8n/gglpA7Rr5Wt3DamD1Gvla3cNqYPX//yAl/3//////ICX/f/7/GvmkIjuVYPUa+aQiO5Vg9fLyfx98pUDt8vJ/H3ylQO1z7cAbRLNc5nPtwBtEs1zmj+hvF/+//9+P6G8X/7//3z7kixK6zKHZPuSLErrModl/4AwNgdq90n/gDA2B2r3SWt3kBsLqncpa3eQGwuqdyt7aAAD+//+/3toAAP///7+kIuQGwuphtaQi5AbC6mG1fx8MDYHaQK1/HwwNgdpArcAbixK6zFymwBuLErrMXKZvF28X/7//n28Xbxf/v/+fixLAG0SzoZmLEsAbRLOhmQwNfx98pb6SDA1/H3ylvpLkBqQiO5WdiuQGpCI7lZ2KAADe2v9/AIAAAN7a/38AgOQGWt3Dap2K5AZa3cNqnYoMDX/gglq+kgwNf+CCWr6SixI+5LpMoZmLEj7kukyhmW8Xj+j/P/+fbxeP6P8//5/AG3PtRDNcpsAbc+1EM1ymfx/y8n0lQK1/H/LyfSVAraQiGvk8FWG1pCIa+TwVYbXe2v//pwkyud7a//+nCTK5")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_qubec")
+shadow_mesh = SubResource("ArrayMesh_c10bf")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iht0i"]
 render_priority = 0
@@ -346,7 +347,7 @@ point_count = 1
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
 point_count = 1
 
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_ltyh5"]
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_v1a86"]
 curve_x = SubResource("Curve_ydqjs")
 curve_y = SubResource("Curve_5xoqr")
 curve_z = SubResource("Curve_sgirv")
@@ -364,7 +365,7 @@ radial_accel_min = -2.23517e-06
 radial_accel_max = -2.23517e-06
 scale_min = 0.0
 scale_max = 1.78
-scale_curve = SubResource("CurveXYZTexture_ltyh5")
+scale_curve = SubResource("CurveXYZTexture_v1a86")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l8o24"]
 transparency = 1
@@ -385,7 +386,7 @@ material = SubResource("StandardMaterial3D_l8o24")
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.366279, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_mr7qh"]
+[sub_resource type="CurveTexture" id="CurveTexture_0mrsg"]
 curve = SubResource("Curve_bytw6")
 
 [sub_resource type="Curve" id="Curve_koty5"]
@@ -393,7 +394,7 @@ _limits = [-4.0, 4.0, 0.0, 1.0]
 _data = [Vector2(0.00290698, -0.61959), 0.0, 0.0, 0, 0, Vector2(0.406977, -0.205012), 0.0, 0.0, 0, 0, Vector2(1, 4), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_np4aq"]
+[sub_resource type="CurveTexture" id="CurveTexture_dxosw"]
 curve = SubResource("Curve_koty5")
 
 [sub_resource type="Curve" id="Curve_psvqh"]
@@ -411,7 +412,7 @@ _limits = [0.0, 3.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_rcyjy"]
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_eawhn"]
 curve_x = SubResource("Curve_psvqh")
 curve_y = SubResource("Curve_5gwur")
 curve_z = SubResource("Curve_vkvsw")
@@ -424,17 +425,17 @@ angle_min = 1.07288e-05
 angle_max = 360.0
 radial_velocity_min = -4.00002
 radial_velocity_max = -4.00002
-radial_velocity_curve = SubResource("CurveTexture_np4aq")
+radial_velocity_curve = SubResource("CurveTexture_dxosw")
 gravity = Vector3(0, 0, 0)
 radial_accel_min = -2.23517e-06
 radial_accel_max = -2.23517e-06
 scale_min = 0.2
 scale_max = 0.2
-scale_over_velocity_curve = SubResource("CurveXYZTexture_rcyjy")
+scale_over_velocity_curve = SubResource("CurveXYZTexture_eawhn")
 color = Color(0, 1, 2, 1)
-alpha_curve = SubResource("CurveTexture_mr7qh")
+alpha_curve = SubResource("CurveTexture_0mrsg")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0mrsg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_faj1v"]
 transparency = 1
 blend_mode = 1
 cull_mode = 2
@@ -447,7 +448,7 @@ albedo_texture = ExtResource("11_sgirv")
 billboard_keep_scale = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_dxosw"]
-material = SubResource("StandardMaterial3D_0mrsg")
+material = SubResource("StandardMaterial3D_faj1v")
 orientation = 0
 
 [sub_resource type="QuadMesh" id="QuadMesh_i38c6"]
@@ -786,7 +787,36 @@ _data = {
 &"RESET": SubResource("Animation_sd8ld")
 }
 
+[sub_resource type="Curve" id="Curve_c10bf"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.558233, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_eawhn"]
+curve = SubResource("Curve_c10bf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_faj1v"]
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 180.0
+initial_velocity_max = 0.8
+gravity = Vector3(0, 0.335, 0)
+scale_min = 0.0
+scale_max = 0.15
+color = Color(2, 1.105, 1, 1)
+alpha_curve = SubResource("CurveTexture_eawhn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ela5v"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("17_l8o24")
+
+[sub_resource type="QuadMesh" id="QuadMesh_3k5ek"]
+material = SubResource("StandardMaterial3D_ela5v")
+
 [node name="Kamehameha" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0470161, -0.0506325, -0.029007)
 
 [node name="Kamehameha1" type="Node3D" parent="."]
 
@@ -866,7 +896,7 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_o50uk")
 
 [node name="AirMesh" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3461, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2586, -0.477007, 0.267585)
 
 [node name="Cylinder" type="MeshInstance3D" parent="AirMesh"]
 transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, -0.442304, 3.53457, 0)
@@ -950,3 +980,10 @@ surface_material_override/0 = SubResource("ShaderMaterial_uow6q")
 libraries = {
 &"": SubResource("AnimationLibrary_ilkxv")
 }
+
+[node name="Generic Particle" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5282, 8.78874, 0)
+amount = 13
+lifetime = 3.59
+process_material = SubResource("ParticleProcessMaterial_faj1v")
+draw_pass_1 = SubResource("QuadMesh_3k5ek")
