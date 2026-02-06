@@ -1,0 +1,165 @@
+[gd_scene load_steps=25 format=3 uid="uid://d3up5i3tpq5p"]
+
+[ext_resource type="ArrayMesh" uid="uid://2by2nfvh6lr2" path="res://Portfolio Models/Assets/BuPow2.obj" id="1_dbogy"]
+[ext_resource type="Shader" uid="uid://caqkc6jeks28o" path="res://Portfolio Models/Assets/Pow.tres" id="2_hhgla"]
+[ext_resource type="Texture2D" uid="uid://dbv8evskht1p8" path="res://Portfolio Models/Assets/MySpark2.png" id="3_7rt88"]
+[ext_resource type="Shader" uid="uid://c8fa61iwx16ab" path="res://Portfolio Models/Assets/Rabo.tres" id="4_8apua"]
+[ext_resource type="Texture2D" uid="uid://dls206xnd64rc" path="res://Portfolio Models/Assets/MySpark3.png" id="5_7t7m1"]
+
+[sub_resource type="Gradient" id="Gradient_5m0qq"]
+offsets = PackedFloat32Array(0, 0.963415, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vm4a4"]
+gradient = SubResource("Gradient_5m0qq")
+fill_from = Vector2(1, 0.726496)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6qaup"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lap8q"]
+noise = SubResource("FastNoiseLite_6qaup")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_swf5k"]
+render_priority = 0
+shader = ExtResource("2_hhgla")
+shader_parameter/Texture2DParameter = ExtResource("3_7rt88")
+shader_parameter/Texture2DParameter2 = SubResource("GradientTexture2D_vm4a4")
+shader_parameter/ColorParameter = Color(3.315, 1.104, 0, 1)
+shader_parameter/Fresnel2Power = 1.295
+shader_parameter/Texture2DParameter3 = SubResource("NoiseTexture2D_lap8q")
+
+[sub_resource type="VisualShaderNodeFresnel" id="VisualShaderNodeFresnel_vfdmr"]
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_3dtq4"]
+parameter_name = "ColorParameter"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_h0pko"]
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_7bwtv"]
+parameter_name = "FloatParameter"
+
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_j4qf7"]
+parameter_name = "BooleanParameter"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_7v4d7"]
+input_name = "normal"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_ahwfu"]
+input_name = "view"
+
+[sub_resource type="VisualShader" id="VisualShader_xx60x"]
+code = "shader_type spatial;
+render_mode blend_add, depth_draw_opaque, cull_back, diffuse_toon, specular_schlick_ggx, unshaded;
+
+uniform vec4 ColorParameter : source_color;
+uniform bool BooleanParameter;
+uniform float FloatParameter;
+
+
+
+void fragment() {
+// ColorParameter:3
+	vec4 n_out3p0 = ColorParameter;
+
+
+// Input:7
+	vec3 n_out7p0 = NORMAL;
+
+
+// Input:8
+	vec3 n_out8p0 = VIEW;
+
+
+// BooleanParameter:6
+	bool n_out6p0 = BooleanParameter;
+
+
+// FloatParameter:5
+	float n_out5p0 = FloatParameter;
+
+
+// Fresnel:2
+	float n_out2p0 = n_out6p0 ? (pow(clamp(dot(n_out7p0, n_out8p0), 0.0, 1.0), n_out5p0)) : (pow(1.0 - clamp(dot(n_out7p0, n_out8p0), 0.0, 1.0), n_out5p0));
+
+
+// VectorOp:4
+	vec3 n_out4p0 = vec3(n_out3p0.xyz) + vec3(n_out2p0);
+
+
+// Output:0
+	ALBEDO = n_out4p0;
+	ALPHA = n_out2p0;
+
+
+}
+"
+modes/blend = 1
+modes/diffuse = 3
+flags/unshaded = true
+nodes/fragment/2/node = SubResource("VisualShaderNodeFresnel_vfdmr")
+nodes/fragment/2/position = Vector2(-140, 140)
+nodes/fragment/3/node = SubResource("VisualShaderNodeColorParameter_3dtq4")
+nodes/fragment/3/position = Vector2(-320, 400)
+nodes/fragment/4/node = SubResource("VisualShaderNodeVectorOp_h0pko")
+nodes/fragment/4/position = Vector2(100, 360)
+nodes/fragment/5/node = SubResource("VisualShaderNodeFloatParameter_7bwtv")
+nodes/fragment/5/position = Vector2(-660, 100)
+nodes/fragment/6/node = SubResource("VisualShaderNodeBooleanParameter_j4qf7")
+nodes/fragment/6/position = Vector2(-460, 20)
+nodes/fragment/7/node = SubResource("VisualShaderNodeInput_7v4d7")
+nodes/fragment/7/position = Vector2(-20, 0)
+nodes/fragment/8/node = SubResource("VisualShaderNodeInput_ahwfu")
+nodes/fragment/8/position = Vector2(320, -60)
+nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 2, 0, 4, 1, 4, 0, 0, 0, 5, 0, 2, 3, 6, 0, 2, 2, 2, 0, 0, 1, 7, 0, 2, 0, 8, 0, 2, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ijelr"]
+render_priority = 0
+shader = SubResource("VisualShader_xx60x")
+shader_parameter/ColorParameter = Color(2, 0.5, 0, 1)
+shader_parameter/BooleanParameter = true
+shader_parameter/FloatParameter = 1.79
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tevwn"]
+material = SubResource("ShaderMaterial_ijelr")
+radius = 1.0
+
+[sub_resource type="Gradient" id="Gradient_fpclq"]
+offsets = PackedFloat32Array(0, 0.263598, 0.936747, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cwvbk"]
+gradient = SubResource("Gradient_fpclq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0rrro"]
+render_priority = 0
+shader = ExtResource("4_8apua")
+shader_parameter/ColorParameter = Color(3.79, 1.32, 0.75, 1)
+shader_parameter/Texture2DParameter2 = SubResource("GradientTexture1D_cwvbk")
+shader_parameter/Velocity = 2.0
+shader_parameter/Texture2DParameter = ExtResource("5_7t7m1")
+
+[sub_resource type="QuadMesh" id="QuadMesh_66bau"]
+material = SubResource("ShaderMaterial_0rrro")
+size = Vector2(4.265, 0.905)
+
+[node name="Projectile" type="Node3D"]
+
+[node name="BuPow" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("1_dbogy")
+surface_material_override/0 = SubResource("ShaderMaterial_swf5k")
+
+[node name="Bolinha Fresnel2" type="MeshInstance3D" parent="BuPow"]
+transform = Transform3D(-1.62606e-08, 0.372, 0, -0.372, -1.62606e-08, 0, 0, 0, 0.372, 0.400735, -0.00846134, 0.00135201)
+mesh = SubResource("CapsuleMesh_tevwn")
+skeleton = NodePath("../..")
+
+[node name="Rabo" type="MeshInstance3D" parent="BuPow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81275, -0.00383301, -0.13272)
+mesh = SubResource("QuadMesh_66bau")
+skeleton = NodePath("../..")
+
+[node name="Rabo2" type="MeshInstance3D" parent="BuPow"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.98755, -0.00383301, -0.13272)
+mesh = SubResource("QuadMesh_66bau")
+skeleton = NodePath("../..")

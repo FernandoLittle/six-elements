@@ -471,6 +471,7 @@ shader_parameter/variation = 0.0
 shader_parameter/parameter1 = 343.515
 shader_parameter/parameter2 = -2.58
 shader_parameter/parameter3 = 0.205
+shader_parameter/alpha = 1.0
 shader_parameter/paleta = Vector3(0.04, 0.385, 3.55)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v1a86"]
@@ -482,6 +483,7 @@ shader_parameter/variation = 0.0
 shader_parameter/parameter1 = 339.31
 shader_parameter/parameter2 = -1.045
 shader_parameter/parameter3 = 0.0
+shader_parameter/alpha = 1.0
 shader_parameter/paleta = Vector3(0.5, 0.7, 6)
 
 [sub_resource type="Animation" id="Animation_c10bf"]
@@ -582,6 +584,7 @@ shader_parameter/variation = 0.0
 shader_parameter/parameter1 = 343.76
 shader_parameter/parameter2 = -2.17
 shader_parameter/parameter3 = 0.285
+shader_parameter/alpha = 1.0
 shader_parameter/paleta = Vector3(3.055, 0.225, 0.155)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_byvk5"]
@@ -593,6 +596,7 @@ shader_parameter/variation = 0.0
 shader_parameter/parameter1 = 343.9
 shader_parameter/parameter2 = -2.43
 shader_parameter/parameter3 = 0.0
+shader_parameter/alpha = 1.0
 shader_parameter/paleta = Vector3(6, 0.7, 0.59)
 
 [sub_resource type="Animation" id="Animation_lje6u"]
@@ -689,6 +693,7 @@ shader_parameter/variation = 0.0
 shader_parameter/parameter1 = 346.945
 shader_parameter/parameter2 = -2.02
 shader_parameter/parameter3 = 0.275
+shader_parameter/alpha = 1.0
 shader_parameter/paleta = Vector3(0.71, 4.345, 0.3)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uow6q"]
@@ -700,6 +705,7 @@ shader_parameter/variation = 0.0
 shader_parameter/parameter1 = 346.945
 shader_parameter/parameter2 = -2.02
 shader_parameter/parameter3 = 0.275
+shader_parameter/alpha = 1.0
 shader_parameter/paleta = Vector3(0.7, 6, 0.5)
 
 [sub_resource type="Animation" id="Animation_5mwre"]

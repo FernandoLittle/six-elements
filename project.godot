@@ -14,6 +14,10 @@ config/name="Six Elements"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Lixo/Test Images/icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://Lixo/default_bus_layout.tres"
+
 [autoload]
 
 HolySpirit="*res://Scripts/Mains Scene/HolySpirit.gd"

@@ -24,6 +24,7 @@ shader = ExtResource("1_3xap5")
 shader_parameter/Texture2DParameter = ExtResource("2_kf18t")
 shader_parameter/Power = 4.34
 shader_parameter/ColorParameter = Color(3.315, 1.22, 0.76, 1)
+shader_parameter/extraFade = 0.0
 shader_parameter/Noise = SubResource("NoiseTexture2D_gghjx")
 
 [sub_resource type="Curve" id="Curve_hhf8q"]
@@ -207,6 +208,7 @@ shader = ExtResource("1_3xap5")
 shader_parameter/Texture2DParameter = ExtResource("6_p8qld")
 shader_parameter/Power = 3.515
 shader_parameter/ColorParameter = Color(3.314, 3.867, 4.42, 1)
+shader_parameter/extraFade = 0.0
 shader_parameter/Noise = SubResource("NoiseTexture2D_gghjx")
 
 [sub_resource type="Curve" id="Curve_geffr"]

@@ -41,27 +41,27 @@ void fragment() {
 	float pixel2 =get_pixel(SCREEN_TEXTURE,uv,vec2(-pixelz,-pixelz));
 	float pixel3=pixel2*pixel;
 	color= color*pixel3;
-	
+
 	//.....
 
 	color.r=pow(color.r,power);
 	color.g=pow(color.g,power);
 	color.b=pow(color.b,power);
-	
-	
-	
+
+
+
 	float mixcolor=(color.r+color.g+color.b)/3.0;
 	color.r=color.r*smoothstep(shadowpower,shadowpower2,mixcolor);
 	color.g=color.g*smoothstep(shadowpower,shadowpower2,mixcolor);
 	color.b=color.b*smoothstep(shadowpower,shadowpower2,mixcolor);
-	
+
 	//ALBEDO=vec3(pixel3);
 	ALBEDO=color.rgb;
 	//ALBEDO=testcolor;
 	// Called for every pixel the material is visible on.
 }
 void SolidColors(){
-	
+
 }
 
 //void light() {

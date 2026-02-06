@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cssyw5onjrwrn"
+path="res://.godot/imported/slashs.mp3-e2f8b1e9ea7bef500ee2424027f11c38.mp3str"
+
+[deps]
+
+source_file="res://Portfolio Models/SFX/slashs.mp3"
+dest_files=["res://.godot/imported/slashs.mp3-e2f8b1e9ea7bef500ee2424027f11c38.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

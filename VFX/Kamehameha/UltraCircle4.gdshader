@@ -8,6 +8,7 @@ uniform float variation = 0.0;
 uniform float parameter1 = 0.0;
 uniform float parameter2 = 0.0;
 uniform float parameter3 = 0.0;
+uniform float alpha = 1.0;
 varying float elapsed_time;
 
 uniform vec3 paleta = vec3(1.0, 1.0, 1.0);
@@ -210,6 +211,6 @@ vec4 o351259_0_1_rgba = vec4(vec3(o7872_0_1_f), 1.0);
 	vec4 color_tex = o351259_0_1_rgba;
 	color_tex = mix(pow((color_tex + vec4(0.055)) * (1.0 / (1.0 + 0.055)),vec4(2.4)),color_tex * (1.0 / 12.92),lessThan(color_tex,vec4(0.04045)));
 	ALBEDO = color_tex.rgb*paleta;
-	ALPHA = color_tex.a;
+	ALPHA = color_tex.a*alpha;
 
 }

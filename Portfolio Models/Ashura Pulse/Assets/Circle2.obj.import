@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://22inqxk8dpn6"
+path="res://.godot/imported/Circle2.obj-8cfb3c5083b14e77ac9e864bc313463b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Circle2.obj-8cfb3c5083b14e77ac9e864bc313463b.mesh"]
+
+source_file="res://Portfolio Models/Ashura Pulse/Assets/Circle2.obj"
+dest_files=["res://.godot/imported/Circle2.obj-8cfb3c5083b14e77ac9e864bc313463b.mesh", "res://.godot/imported/Circle2.obj-8cfb3c5083b14e77ac9e864bc313463b.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

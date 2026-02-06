@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cyy7edtn5l04m"
+path="res://.godot/imported/Fiu.mp3-3a3d1431a98e2df35c7f0c656568cee7.mp3str"
+
+[deps]
+
+source_file="res://Portfolio Models/SFX/Fiu.mp3"
+dest_files=["res://.godot/imported/Fiu.mp3-3a3d1431a98e2df35c7f0c656568cee7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
